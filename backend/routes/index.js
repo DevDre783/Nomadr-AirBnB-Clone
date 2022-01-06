@@ -1,9 +1,9 @@
-const csrf = require('csurf');
-const csrfProtection = csrf({ cookie: true });
 const express = require('express');
 const router = express.Router();
+const apiRouter = require('./api');
+router.use('/api', apiRouter);
 
-router.get('/hello', csrfProtection, (req, res) => {
+router.get('/hello/world', (req, res) => {
     res.cookie('XSRF-TOKEN', req.csrfToken());
     res.send('Hello World!');
 });
