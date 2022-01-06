@@ -74,6 +74,7 @@ module.exports = (sequelize, DataTypes) => {
         },
       },
     });
+
     if (user && user.validatePassword(password)) {
       return await User.scope('currentUser').findByPk(user.id);
     }
@@ -86,6 +87,7 @@ module.exports = (sequelize, DataTypes) => {
       email,
       hashedPassword,
     });
+    
     return await User.scope('currentUser').findByPk(user.id);
   };
 
