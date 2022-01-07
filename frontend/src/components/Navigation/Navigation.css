@@ -1,0 +1,19 @@
+.logo {
+    display: flex;
+    justify-content: center;
+    transform: scale(1.2);
+}
+
+.fa-shuttle-van {
+    transform: scale(1.3);
+    margin-right: 10px;
+}
+
+.logo:hover {
+    transform: scale(1.4)
+}
+
+.login {
+    margin-right: 10px;
+    margin-left: 10px;
+}
