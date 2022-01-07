@@ -23,14 +23,28 @@ function Navigation({ isLoaded }){
   }
 
   return (
-    <nav>
+    <div className='navbar'>
         <div className='logo'>
-            <Link exact to={`/`}>
-                <i className="fas fa-caravan">--<i className="fas fa-shuttle-van"></i>rvnb</i>
+            <Link to={`/`}>
+                <i className="fas fa-caravan">--<i className="fas fa-shuttle-van"></i></i>
             </Link>
         </div>
-        {isLoaded && sessionLinks}
-    </nav>
+        <div>
+          <span className='vanstorent'>
+            <Link to={`/`}>Vans to rent</Link>
+          </span>
+          <span className='experiences'>
+            <Link to={`/`}>Experiences</Link>
+          </span>
+        </div>
+        <nav>
+          <div className='right-nav'>
+            <Link to={`/`}><div>Become a Host</div></Link>
+            <button><i className="fas fa-globe"></i></button>
+            {isLoaded && sessionLinks}
+          </div>
+        </nav>
+    </div>
   );
 }
 
