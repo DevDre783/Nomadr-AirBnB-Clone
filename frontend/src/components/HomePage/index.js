@@ -8,7 +8,7 @@ function Home() {
 
     return (
         <div className='video'>
-            <iframe className='splash-video' src="https://www.youtube.com/embed/osalW0-0AxI?controls=0&mute=1&autoplay=1&loop=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe className='splash-video' src="https://www.youtube.com/embed/osalW0-0AxI?controls=0&showinfo=0&rel=0&autoplay=1&loop=1&mute=1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" frameborder="0" allowfullscreen data-autoplay data-keepplaying></iframe>
         </div>
     );
 }

@@ -42,8 +42,8 @@ function Navigation({ isLoaded }){
         </div>
         <nav>
           <div className='right-nav'>
-            <Link to={`/`}><div>Become a Host</div></Link>
-            <button><i className="fas fa-globe"></i></button>
+            <Link to={`/`} className='become-a-host'><div>Become a Host</div></Link>
+            <button className='languages-globe'><i className="fas fa-globe"></i></button>
             {isLoaded && sessionLinks}
           </div>
         </nav>
