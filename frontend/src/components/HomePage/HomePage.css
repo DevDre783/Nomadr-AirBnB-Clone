@@ -1,0 +1,11 @@
+.video {
+    display: flex;
+    justify-content: center;
+    margin-top: 5%;
+}
+
+.splash-video {
+    position: fixed;
+    width: 67.08%;
+    height: 74.48%;
+}

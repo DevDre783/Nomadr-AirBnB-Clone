@@ -31,10 +31,13 @@ function Navigation({ isLoaded }){
         </div>
         <div>
           <span className='vanstorent'>
-            <Link to={`/`}>Vans to rent</Link>
+            <Link to='/vans'>Vans to rent</Link>
           </span>
-          <span className='experiences'>
-            <Link to={`/`}>Experiences</Link>
+          <span className='github'>
+            <Link to='/'>github-logo</Link>
+          </span>
+          <span className='linkedIn'>
+            <Link to='/'>linkedIn-logo</Link>
           </span>
         </div>
         <nav>

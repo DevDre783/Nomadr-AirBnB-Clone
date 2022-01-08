@@ -16,6 +16,14 @@
     padding-right: 20px;
 }
 
+.github {
+    padding-right: 20px;
+}
+
+.linkedIn {
+    padding-right: 20px;
+}
+
 .right-nav {
     display: flex;
     justify-content: center;
