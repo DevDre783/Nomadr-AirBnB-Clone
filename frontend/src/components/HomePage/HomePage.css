@@ -1,11 +1,33 @@
-.video {
+.splash-image-container {
     display: flex;
     justify-content: center;
-    margin-top: 5%;
+    align-items: center;
+    margin: 7%;
+    height: 90%;
 }
 
-.splash-video {
-    position: fixed;
-    width: 67.08%;
-    height: 74.48%;
+.the-image {
+    border-radius: 30px;
+}
+
+.welcome-msg {
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.685);
+    font-weight: bold;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 30pt;
+    position: absolute;
+    top: 58%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.site-name {
+    text-shadow: black 1px 1px 1px;
+    color: #ff444a;
+    font-family: cursive;
+    font-size: 42pt;
+    font-weight: bolder;
+    position: absolute;
+    bottom: 100px;
+    right: 21.9%;
 }

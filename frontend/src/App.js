@@ -6,7 +6,7 @@ import LoginFormPage from "./components/LoginFormPage";
 import SignupFormPage from "./components/SignupFormPage";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
-import Vans from "./components/VanListings";
+import VanListings from "./components/VanListings";
 import Home from "./components/HomePage";
 
 function App() {
@@ -31,7 +31,7 @@ function App() {
             <SignupFormPage />
           </Route>
           <Route path='/vans'>
-            <Vans />
+            <VanListings />
           </Route>
         </Switch>
       )}

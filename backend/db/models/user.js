@@ -48,7 +48,9 @@ module.exports = (sequelize, DataTypes) => {
     });
 
   User.associate = function (models) {
-    // associations can be defined here
+    User.hasMany(models.Van, { foreignKey: 'userId' });
+    User.hasMany(models.Review, { foreignKey: 'userId' });
+    User.hasMany(models.Booking, { foreignKey: 'userId' });
   };
 
   User.prototype.toSafeObject = function () { // remember, this cannot be an arrow function
@@ -87,7 +89,7 @@ module.exports = (sequelize, DataTypes) => {
       email,
       hashedPassword,
     });
-    
+
     return await User.scope('currentUser').findByPk(user.id);
   };
 

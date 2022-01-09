@@ -23,7 +23,7 @@ function Navigation({ isLoaded }){
   }
 
   return (
-    <div className='navbar'>
+    <nav className='navbar'>
         <div className='logo'>
             <Link to={`/`}>
                 <i className="fas fa-caravan">--<i className="fas fa-shuttle-van"></i></i>
@@ -44,10 +44,10 @@ function Navigation({ isLoaded }){
           <div className='right-nav'>
             <Link to={`/`} className='become-a-host'><div>Become a Host</div></Link>
             <button className='languages-globe'><i className="fas fa-globe"></i></button>
-            {isLoaded && sessionLinks}
+            <div className='profile-icon'>{isLoaded && sessionLinks}</div>
           </div>
         </nav>
-    </div>
+    </nav>
   );
 }
 

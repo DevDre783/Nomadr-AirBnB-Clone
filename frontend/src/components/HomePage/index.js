@@ -7,8 +7,10 @@ import './HomePage.css';
 function Home() {
 
     return (
-        <div className='video'>
-            <iframe className='splash-video' src="https://www.youtube.com/embed/osalW0-0AxI?controls=0&showinfo=0&rel=0&autoplay=1&loop=1&mute=1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" frameborder="0" allowfullscreen data-autoplay data-keepplaying></iframe>
+        <div className='splash-image-container'>
+            <img className='the-image' src="https://www.worldphoto.org/sites/default/files/default-media/Mountain%20Road%20Aerial%20-%20%C2%A9%20Manish%20Mamtani.jpg"></img>
+            <div className='welcome-msg'>Nomadr why. Nomadr where. There's a Van out there.</div>
+            <div className='site-name'>Nomadr.</div>
         </div>
     );
 }

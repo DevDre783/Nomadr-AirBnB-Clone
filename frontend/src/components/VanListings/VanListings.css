@@ -1,0 +1,12 @@
+body::-webkit-scrollbar {
+    display: none;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.vanImage:hover {
+  transform: scale(1.05);
+  transition-duration: 0.3s;
+}
