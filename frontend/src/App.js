@@ -7,6 +7,8 @@ import SignupFormPage from "./components/SignupFormPage";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import VanListings from "./components/VanListings";
+import VanDetailsPage from "./components/VanDetailsPage";
+import VanHostForm from "./components/VanHostForm";
 import Home from "./components/HomePage";
 
 function App() {
@@ -24,14 +26,20 @@ function App() {
           <Route exact path='/'>
             <Home />
           </Route>
-          <Route path="/login">
+          <Route exact path="/login">
             <LoginFormPage />
           </Route>
-          <Route path='/signup'>
+          <Route exact path='/signup'>
             <SignupFormPage />
           </Route>
-          <Route path='/vans'>
+          <Route exact path='/vans'>
             <VanListings />
+          </Route>
+          <Route exact path='/vans/:vanId'>
+            <VanDetailsPage />
+          </Route>
+          <Route>
+            <VanHostForm exact path='/host'/>
           </Route>
         </Switch>
       )}

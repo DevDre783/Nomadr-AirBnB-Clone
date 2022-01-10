@@ -1,6 +1,7 @@
 import { csrfFetch } from "./csrf";
 
 const LOAD_ALL = 'vans/LOAD_ALL';
+const LOAD_ONE = 'vans/LOAD_ONE';
 
 const loadAll = (listOfVans) => {
     return {
@@ -9,6 +10,13 @@ const loadAll = (listOfVans) => {
     }
 };
 
+const loadOne = (vanId) => {
+    return {
+        type: LOAD_ONE,
+        vanId
+    }
+}
+
 export const getAllVans = () => async (dispatch) => {
     const response = await csrfFetch('/api/vans');
     if(response.ok) {
@@ -16,6 +24,14 @@ export const getAllVans = () => async (dispatch) => {
         dispatch(loadAll(vans));
     }
 };
+
+export const getOneVan = (id) => async (dispatch) => {
+    const response = await csrfFetch(`/api/vans/${id}`);
+    if (response.ok) {
+        const van = await response.json();
+        dispatch(loadOne(van));
+    }
+}
 
 const initialState = {
     listOfVans: []
@@ -32,6 +48,26 @@ const vansReducer = (state = initialState, action) => {
                 ...state,
                 ...allVans,
                 listOfVans: action.listOfVans
+            }
+        }
+        case LOAD_ONE: {
+            if(!state[action.van.vanId]) {
+                const newState = {
+                    ...state,
+                    [action.van.vanId]: action.van
+                };
+                const vanList = newState.listOfVans.map(vanId => newState[vanId]);
+
+                vanList.push(action.van);
+                newState.listOfVans = action.listOfVans;
+                return newState
+            }
+            return {
+                ...state,
+                [action.van.id]: {
+                    ...state[action.van.id],
+                    ...action.van
+                }
             }
         }
         default:

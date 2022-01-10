@@ -3,10 +3,43 @@ body::-webkit-scrollbar {
 }
 
 html {
-  scroll-behavior: smooth;
+    scroll-behavior: smooth;
 }
 
-.vanImage:hover {
-  transform: scale(1.05);
-  transition-duration: 0.3s;
+.listing__info {
+    display: flex;
+    align-items: center;
+}
+
+.vanImage {
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin: 20px;
+    padding: 50px;
+    border-bottom: 1px solid lightgray;
+}
+
+#vanImgLink {
+    border-bottom: none;
+}
+
+#vanId:hover {
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+.vanImage > img {
+    height: 200px;
+    width: 350px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.van__info {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-between; */
+    padding-left: 20px;
+    justify-content: center;
 }

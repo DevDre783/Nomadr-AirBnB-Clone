@@ -10,7 +10,9 @@
     border-radius: 30px;
 }
 
-.welcome-msg {
+.banner__info {
+    display: flex;
+    justify-content: center;
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.685);
     font-weight: bold;
     font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;

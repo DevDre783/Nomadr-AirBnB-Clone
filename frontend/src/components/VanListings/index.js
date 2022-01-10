@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllVans } from "../../store/vans";
+import { Link } from 'react-router-dom';
 import './VanListings.css';
 
 function VanListings() {
@@ -13,15 +14,20 @@ function VanListings() {
 
     return (
         <div>
-            <h1 className="listings-title">Vans Listings</h1>
+            <h1 className="listings__header">Vans Nearby</h1>
             {allVans.map(van => (
-                <div className='vanImages'>
-                    <div className='vanImage' >
-                        <img key={van.id} src={van.Images[0].url}></img>
-                    </div>
-                    <div className='location-price'>
-                        <h3 className='location-text'>{`${van.city}, ${van.state}`}</h3>
-                        <h2 className='price-text'>{`$${van.costPerNight} / night`}</h2>
+                <div className='listing__info'>
+                    <div className='vanImage'>
+                        <Link id='vanImgLink' className="vanImage" to={`/vans/${van.id}`}>
+                            <img id="vanId" key={van.id} src={van.Images[0].url}></img>
+                        </Link>
+                        <div className='van__info'>
+                            <h2>{van.title}</h2>
+                            <p>Vehicle Capacity: {van.totalPassengers} passengers</p>
+                            <h3>Location:</h3>
+                            <h3 className='location-text'>{`${van.city}, ${van.state}`}</h3>
+                            <h2 className='price-text'>{`$${van.costPerNight} / night`}</h2>
+                        </div>
                     </div>
                 </div>
             ))}
