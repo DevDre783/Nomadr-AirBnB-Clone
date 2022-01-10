@@ -2,7 +2,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 7%;
+    margin: 4%;
     height: 90%;
 }
 
@@ -18,7 +18,7 @@
     font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-size: 30pt;
     position: absolute;
-    top: 58%;
+    top: 53%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
@@ -30,6 +30,6 @@
     font-size: 42pt;
     font-weight: bolder;
     position: absolute;
-    bottom: 100px;
+    bottom: 175px;
     right: 21.9%;
 }

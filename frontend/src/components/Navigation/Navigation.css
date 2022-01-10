@@ -32,36 +32,36 @@ body {
 
 .profile-menu {
     margin-right: 12px;
-    -webkit-box-align: center !important;
-    -ms-flex-align: center !important;
-    -webkit-appearance: none !important;
-    -moz-appearance: none !important;
-    appearance: none !important;
-    background: transparent !important;
-    border: 1px solid #DDDDDD !important;
-    color: #222222 !important;
-    cursor: pointer !important;
-    font-family: inherit !important;
-    font-size: inherit !important;
-    font-weight: inherit !important;
-    line-height: inherit !important;
-    margin: 0px !important;
-    outline: none !important;
-    overflow: visible !important;
-    padding: 5px 5px 5px 12px !important;
-    text-align: inherit !important;
-    text-decoration: none !important;
-    -webkit-user-select: auto !important;
-    -moz-user-select: auto !important;
-    -ms-user-select: auto !important;
-    user-select: auto !important;
-    -webkit-align-items: center !important;
-    align-items: center !important;
-    background-color: #FFFFFF !important;
-    border-radius: 21px !important;
-    height: 42px !important;
-    position: relative !important;
-    vertical-align: middle !important;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: transparent;
+    border: 1px solid #DDDDDD;
+    color: #222222;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+    margin: 0px;
+    outline: none;
+    overflow: visible;
+    padding: 5px 5px 5px 12px;
+    text-align: inherit;
+    text-decoration: none;
+    -webkit-user-select: auto;
+    -moz-user-select: auto;
+    -ms-user-select: auto;
+    user-select: auto;
+    -webkit-align-items: center;
+    align-items: center;
+    background-color: #FFFFFF;
+    border-radius: 21px;
+    height: 42px;
+    position: relative;
+    vertical-align: middle;
 }
 
 .right-nav {

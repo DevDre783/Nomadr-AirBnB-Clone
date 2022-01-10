@@ -36,11 +36,13 @@ router.get('/', asyncHandler(async(req, res) => {
 // GET EACH VAN BY ID
 
 router.get('/:vanId', asyncHandler(async(req, res) => {
-    const specificVanId = parseInt(req.params.id, 10)
+    const specificVanId = parseInt(req.params.vanId, 10);
+
     const specificVan = await Van.findByPk(specificVanId, {
         include: [Image, Amenity]
-    })
-    return res.json(specificVan);
+    });
+
+    res.json(specificVan);
 }));
 
 module.exports = router;

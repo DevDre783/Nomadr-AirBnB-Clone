@@ -38,8 +38,8 @@ function App() {
           <Route exact path='/vans/:vanId'>
             <VanDetailsPage />
           </Route>
-          <Route>
-            <VanHostForm exact path='/host'/>
+          <Route exact path='/host'>
+            <VanHostForm />
           </Route>
         </Switch>
       )}

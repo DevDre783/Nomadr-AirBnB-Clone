@@ -7,9 +7,9 @@ import { getOneVan } from "../../store/vans";
 function VanDetailsPage() {
     const { vanId } = useParams();
     console.log(vanId);
-    const oneVan = useSelector(state => state.vans);
+    const oneVan = useSelector(state => state.vans[vanId]);
     const dispatch = useDispatch();
-    console.log(oneVan);
+    // console.log(oneVan);
 
     useEffect(() => {
         dispatch(getOneVan(vanId));
@@ -18,9 +18,9 @@ function VanDetailsPage() {
 
     return (
         <div>
-            {/* <h2>{oneVan.title}</h2>
-            <img id="vanId" key={oneVan.id} src={oneVan.Images[0].url}></img> */}
-            <h1>Test</h1>
+            <h2>{oneVan.title}</h2>
+            <img key={oneVan.id} src={oneVan.Images[0].url}></img>
+            <h3>{oneVan.description}</h3>
         </div>
     )
 }

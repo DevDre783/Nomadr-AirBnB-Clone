@@ -31,6 +31,7 @@ export const getOneVan = (id) => async (dispatch) => {
         const van = await response.json();
         dispatch(loadOne(van));
     }
+    return
 }
 
 const initialState = {
@@ -51,7 +52,7 @@ const vansReducer = (state = initialState, action) => {
             }
         }
         case LOAD_ONE: {
-            if(!state[action.van.vanId]) {
+            if(state[action.van.vanId]) {
                 const newState = {
                     ...state,
                     [action.van.vanId]: action.van

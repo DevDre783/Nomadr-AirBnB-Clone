@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import './Navigation.css';
 import VansHostForm from '../VanHostForm';
+import Demo from './demo-user';
 
 function Navigation({ isLoaded }){
   const sessionUser = useSelector(state => state.session.user);
@@ -12,14 +13,14 @@ function Navigation({ isLoaded }){
   let sessionLinks;
   if (sessionUser) {
     sessionLinks = (
-      <ProfileButton user={sessionUser} />,
-      <NavLink to={'/host'}>Become a Host</NavLink>
+      <ProfileButton user={sessionUser} />
     );
   } else {
     sessionLinks = (
       <>
         <NavLink className="login" to="/login">Log In</NavLink>
         <NavLink className="signup" to="/signup">Sign Up</NavLink>
+        <Demo />
       </>
     );
   }
@@ -33,7 +34,7 @@ function Navigation({ isLoaded }){
         </div>
         <div>
           <span className='vanstorent'>
-            <Link to='/vans'>Vans to rent</Link>
+            <Link to='/vans'>Rent a Van</Link>
           </span>
           <span className='github'>
             <Link to='/'>github-logo</Link>
@@ -44,6 +45,7 @@ function Navigation({ isLoaded }){
         </div>
         <nav>
           <div className='right-nav'>
+            <NavLink to={'/host'}>Become a Host</NavLink>
             <button className='languages-globe'><i className="fas fa-globe"></i></button>
             <div className='profile-icon'>{isLoaded && sessionLinks}</div>
           </div>

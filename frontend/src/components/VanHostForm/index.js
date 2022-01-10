@@ -13,17 +13,15 @@ function VanHostForm() {
     const [description, setDescription] = useState()
     const [cost, setCost] = useState()
     const [guest, setGuest] = useState()
-    const [bed, setBed] = useState()
-    const [bath, setBath] = useState()
-
     console.log(states)
+
     return (
         <div>
-            <h1>Cabin Form</h1>
+            <h1>Host Van Form</h1>
             <form>
                 <input
                     type='text'
-                    placeholder="Cabin Name"
+                    placeholder="Van Name"
                     value={title}
                     onChange={e => setTitle(e.target.value)}
                 />
@@ -77,21 +75,9 @@ function VanHostForm() {
                 />
                 <input
                     type='number'
-                    placeholder="Guests"
+                    placeholder="Passengers"
                     value={guest}
                     onChange={e => setGuest(e.target.value)}
-                />
-                 <input
-                    type='number'
-                    placeholder="Beds"
-                    value={bed}
-                    onChange={e => setBed(e.target.value)}
-                />
-                 <input
-                    type='number'
-                    placeholder="Baths"
-                    value={bath}
-                    onChange={e => setBath(e.target.value)}
                 />
             </form>
         </div>
