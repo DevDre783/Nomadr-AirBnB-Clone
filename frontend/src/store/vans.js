@@ -2,6 +2,7 @@ import { csrfFetch } from "./csrf";
 
 const LOAD_ALL = 'vans/LOAD_ALL';
 const LOAD_ONE = 'vans/LOAD_ONE';
+const ADD_ONE = 'vans/ADD_ONE';
 
 const loadAll = (listOfVans) => {
     return {
@@ -10,10 +11,17 @@ const loadAll = (listOfVans) => {
     }
 };
 
-const loadOne = (vanId) => {
+const loadOne = (van) => {
     return {
         type: LOAD_ONE,
-        vanId
+        van
+    }
+}
+
+const addOneVan = (van) => {
+    return {
+        type: ADD_ONE,
+        van
     }
 }
 
@@ -57,10 +65,7 @@ const vansReducer = (state = initialState, action) => {
                     ...state,
                     [action.van.vanId]: action.van
                 };
-                const vanList = newState.listOfVans.map(vanId => newState[vanId]);
 
-                vanList.push(action.van);
-                newState.listOfVans = action.listOfVans;
                 return newState
             }
             return {
@@ -71,6 +76,25 @@ const vansReducer = (state = initialState, action) => {
                 }
             }
         }
+        case ADD_ONE: {
+            if (state[action.van.id]) {
+              const newState = {
+                ...state,
+                [action.van.id]: action.van
+              };
+              const vanList = newState.list.map(id => newState[id]);
+              vanList.push(action.van);
+              
+              return newState;
+            }
+            return {
+              ...state,
+              [action.van.id]: {
+                ...state[action.van.id],
+                ...action.van,
+              }
+            };
+          }
         default:
             return state
     }

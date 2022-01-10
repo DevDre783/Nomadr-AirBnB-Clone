@@ -12,13 +12,43 @@ function VanHostForm() {
     const [zipCode, setZipCode] = useState()
     const [description, setDescription] = useState()
     const [cost, setCost] = useState()
-    const [guest, setGuest] = useState()
+    const [passenger, setPassenger] = useState()
     console.log(states)
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        //!!START SILENT
+        const payload = {
+          userId: session.user.id,
+          address,
+          city,
+          state,
+          country,
+          title,
+          description,
+          costPerNight,
+          totalPassengers,
+          zipCode
+        };
+
+        let createdSpot;
+
+        try {
+            createdSpot = await dispatch(addVan(payload));
+        } catch (error) {
+            throw new Error("This did not work!!")
+            // if (error instanceof ValidationError) setErrorMessages(error.errors);
+            // // If error is not a ValidationError, add slice at the end to remove extra
+            // // "Error: "
+            // else setErrorMessages({ overall: error.toString().slice(7) })
+        }
+    }
 
     return (
         <div>
             <h1>Host Van Form</h1>
-            <form>
+            <form onSubmit={handleSubmit}>
                 <input
                     type='text'
                     placeholder="Van Name"
@@ -76,9 +106,10 @@ function VanHostForm() {
                 <input
                     type='number'
                     placeholder="Passengers"
-                    value={guest}
-                    onChange={e => setGuest(e.target.value)}
+                    value={passenger}
+                    onChange={e => setPassenger(e.target.value)}
                 />
+                <button>Submit</button>
             </form>
         </div>
     )

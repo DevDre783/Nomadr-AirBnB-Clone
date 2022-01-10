@@ -18,9 +18,9 @@ function VanDetailsPage() {
 
     return (
         <div>
-            <h2>{oneVan.title}</h2>
-            <img key={oneVan.id} src={oneVan.Images[0].url}></img>
-            <h3>{oneVan.description}</h3>
+            <h2>{oneVan?.title}</h2>
+            <img key={oneVan?.id} src={oneVan?.Images[0].url}></img>
+            <h3>{oneVan?.description}</h3>
         </div>
     )
 }

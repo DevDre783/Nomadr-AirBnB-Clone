@@ -24,7 +24,7 @@ const router = express.Router();
 
 // GET  VANS - all the vans
 
-router.get('/', asyncHandler(async(req, res) => {
+router.get('/', asyncHandler(async (req, res) => {
     const vans = await Van.findAll({
         include: [Image, Amenity]
     });
@@ -35,7 +35,7 @@ router.get('/', asyncHandler(async(req, res) => {
 
 // GET EACH VAN BY ID
 
-router.get('/:vanId', asyncHandler(async(req, res) => {
+router.get('/:vanId', asyncHandler(async (req, res) => {
     const specificVanId = parseInt(req.params.vanId, 10);
 
     const specificVan = await Van.findByPk(specificVanId, {
@@ -44,5 +44,14 @@ router.get('/:vanId', asyncHandler(async(req, res) => {
 
     res.json(specificVan);
 }));
+
+router.post('/host', requireAuth, asyncHandler(async (req, res) => {
+
+    const id = await Spot.create(req.body)
+
+    return res.json({
+        id
+    })
+}))
 
 module.exports = router;
