@@ -44,22 +44,7 @@ module.exports = {
           zipCode: 10668,
           createdAt: new Date(),
           updatedAt: new Date()
-        },
-        // New Data below (has not been seeded)
-        {
-          userId: 4,
-          address: '8 Makka Lane',
-          city: 'Whosville',
-          state: 'New York',
-          country: 'USA',
-          title: 'Sprinter ready to sprint!',
-          description: 'Come one, come all! Meet Van. Enjoy our sweet ride chasing the horizon to wherever life will take you, did i say life? I meant Van.',
-          costPerNight: 405,
-          totalPassengers: 6,
-          zipCode: 10728,
-          createdAt: new Date(),
-          updatedAt: new Date()
-        },
+        }
       ],{})
   },
   down: (queryInterface, Sequelize) => {
