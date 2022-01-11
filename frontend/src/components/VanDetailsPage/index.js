@@ -13,7 +13,9 @@ function VanDetailsPage() {
 
     useEffect(() => {
         dispatch(getOneVan(vanId));
-        console.log('I work !!');
+        
+
+        // console.log('I work !!');
     },[dispatch, vanId]);
 
     return (
