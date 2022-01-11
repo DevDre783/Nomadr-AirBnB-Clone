@@ -7,33 +7,54 @@ import {states} from '../utils';
 
 function VanHostForm() {
     const session = useSelector(state => state.session);
-    const [title, setTitle] = useState()
-    const [country, setCountry] = useState()
-    const [state, setState] = useState()
-    const [city, setCity] = useState()
-    const [address, setAddress] = useState()
-    const [zipCode, setZipCode] = useState()
-    const [description, setDescription] = useState()
-    const [costPerNight, setCostPerNight] = useState()
-    const [totalPassengers, setTotalPassengers] = useState()
-    const dispatch = useDispatch();
-    const history = useHistory();
+    // Vans
+    const [title, setTitle] = useState('');
+    const [country, setCountry] = useState('');
+    const [state, setState] = useState('');
+    const [city, setCity] = useState('');
+    const [address, setAddress] = useState('');
+    const [zipCode, setZipCode] = useState('');
+    const [description, setDescription] = useState('');
+    const [costPerNight, setCostPerNight] = useState('');
+    const [totalPassengers, setTotalPassengers] = useState('');
+    // Images
+    const [url, setUrl] = useState('');
+    // Amenities
+    
+
+    const dispatch = useDispatch('');
+    const history = useHistory('');
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
         //!!START SILENT
         const payload = {
-          userId: session.user.id,
-          address,
-          city,
-          state,
-          country,
-          title,
-          description,
-          costPerNight,
-          totalPassengers,
-          zipCode
+          vans: {
+            userId: session.user.id,
+            address,
+            city,
+            state,
+            country,
+            title,
+            description,
+            costPerNight,
+            totalPassengers,
+            zipCode
+          },
+          image: {
+            url
+          },
+        //   amenities: {
+        //     kitchen,
+        //     shower,
+        //     spareTire,
+        //     firstAidKit,
+        //     roadsideAssistance,
+        //     roofRackStorage,
+        //     hotSpot,
+        //     chargingStation
+        //   }
         };
 
         let createdVan;
@@ -48,14 +69,10 @@ function VanHostForm() {
         }
         //!!END
         if (createdVan) {
-        //     //!!START SILENT
-        //     setErrorMessages({});
-        //     //!!END
-            console.log(createdVan)
             history.push(`/vans/${createdVan.id.id}`);
-        //     hideForm();
         }
     };
+
 
     return (
         <div>
@@ -65,7 +82,7 @@ function VanHostForm() {
                     type='text'
                     placeholder="Van Name"
                     value={title}
-                    onChange={e => setTitle(e.target.value)}
+                    onChange={(e) => setTitle(e.target.value)}
                 />
                 <input
                     type='text'
@@ -121,6 +138,14 @@ function VanHostForm() {
                     value={totalPassengers}
                     onChange={e => setTotalPassengers(e.target.value)}
                 />
+                <label> Image Url:
+                    <input
+                        type='string'
+                        placeholder="image url"
+                        value={url}
+                        onChange={(e) => setUrl(e.target.value)}
+                    />
+                </label>
                 <button>Submit</button>
             </form>
         </div>

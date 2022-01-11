@@ -45,10 +45,28 @@ router.get('/:vanId', asyncHandler(async (req, res) => {
     res.json(specificVan);
 }));
 
-router.post('/vans/host', requireAuth, asyncHandler(async (req, res) => {
+router.post('/host', requireAuth, asyncHandler(async (req, res) => {
+    const { image, vans } = req.body;
+    const id = await Van.create(vans);
+    const newImageUrl = {
+        vanId: id.id,
+        url: image.url
+    }
+    await Image.create(newImageUrl);
+    // const newAmenityList = {
+    //     vanId: id.id,
+    //     kitchen: amenities.kitchen,
+    //     shower: amenities.shower,
+    //     spareTire: amenities.spareTire,
+    //     firstAidKit: amenities.firstAidKit,
+    //     roadsideAssistance: amenities.roadsideAssistance,
+    //     roofRackStorage: amenities.roofRackStorage,
+    //     hotSpot: amenities.hotSpot,
+    //     chargingStation: amenities.chargingStation
+    // };
+    // await Amenity.create(newAmenityList);
 
-    const id = await Van.create(req.body)
-    // console.log(id);
+    console.log(id);
     return res.json({
         id
     });

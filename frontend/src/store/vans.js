@@ -41,22 +41,17 @@ export const getOneVan = (id) => async (dispatch) => {
     }
 };
 
-export const postVan = ( van ) => async dispatch => {
-    const res = await csrfFetch(`/api/host`, {
+export const postVan = ( payload ) => async dispatch => {
+    const res = await csrfFetch(`/api/vans/host`, {
        method: 'POST',
        headers: { 'Content-Type': 'application/json' },
-       body: JSON.stringify(van)
+       body: JSON.stringify(payload)
    });
-   if (!res.ok) {
-       let error = await res.json();
-       return error;
-   }
 
-   const payload = await res.json();
-   console.log("addVan THUNK", payload);
-   await dispatch(addOneVan(payload));
-
-   return payload;
+   const van = await res.json();
+//    console.log("addVan THUNK", payload);
+   await dispatch(addOneVan(van));
+   return van;
 }
 
 const initialState = {
@@ -99,6 +94,7 @@ const vansReducer = (state = initialState, action) => {
                     ...state,
                     [action.van.id]: action.van
                 };
+
                 const vanList = newState.listOfVans.map(id => newState[id]);
                 vanList.push(action.van);
                 newState.listOfVans = action.listOfVans;
@@ -113,7 +109,7 @@ const vansReducer = (state = initialState, action) => {
             }
         }
         default:
-            return state
+            return state;
     }
 };
 
