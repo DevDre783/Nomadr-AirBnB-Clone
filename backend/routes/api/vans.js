@@ -1,8 +1,8 @@
+const { requireAuth } = require('../../utils/auth');
 const express = require('express');
 const asyncHandler = require('express-async-handler');
 const { check } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation');
-
 
 const { setTokenCookie, restoreUser } = require('../../utils/auth');
 const { User, Van, Image, Amenity } = require('../../db/models');
@@ -45,13 +45,13 @@ router.get('/:vanId', asyncHandler(async (req, res) => {
     res.json(specificVan);
 }));
 
-router.post('/host', requireAuth, asyncHandler(async (req, res) => {
+router.post('/vans/host', requireAuth, asyncHandler(async (req, res) => {
 
-    const id = await Spot.create(req.body)
-
+    const id = await Van.create(req.body)
+    // console.log(id);
     return res.json({
         id
-    })
-}))
+    });
+}));
 
 module.exports = router;
