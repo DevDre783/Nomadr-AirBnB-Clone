@@ -26,7 +26,7 @@ body {
     padding-right: 20px;
 }
 
-.become-a-host, .languages-globe {
+.become-a-host {
     margin-right: 20px;
 }
 
@@ -64,10 +64,10 @@ body {
     vertical-align: middle;
 }
 
-.right-nav {
+/* .right-nav {
     display: flex;
     justify-content: center;
-}
+} */
 
 .logo {
     margin-left: 15px;
@@ -88,7 +88,7 @@ body {
     transform: scale(1.55)
 }
 
-.login {
+/* .login {
     margin-right: 10px;
     margin-left: 10px;
-}
+} */

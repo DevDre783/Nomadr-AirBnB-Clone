@@ -13,7 +13,10 @@ function Navigation({ isLoaded }){
   let sessionLinks;
   if (sessionUser) {
     sessionLinks = (
-      <ProfileButton user={sessionUser} />
+      <>
+        <NavLink to={'/host'}>Become a Host</NavLink>
+        <ProfileButton user={sessionUser} />
+      </>
     );
   } else {
     sessionLinks = (
@@ -45,8 +48,6 @@ function Navigation({ isLoaded }){
         </div>
         <nav>
           <div className='right-nav'>
-            <NavLink to={'/host'}>Become a Host</NavLink>
-            <button className='languages-globe'><i className="fas fa-globe"></i></button>
             <div className='profile-icon'>{isLoaded && sessionLinks}</div>
           </div>
         </nav>
