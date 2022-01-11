@@ -18,9 +18,9 @@ function VanListings() {
             {allVans.map(van => (
                 <div className='listing__info'>
                     <div className='vanImage'>
-                        <Link id='vanImgLink' className="vanImage" to={`/vans/${van.id}`}>
+                        {/* <Link id='vanImgLink' className="vanImage" to={`/vans/${van.id}`}>
                             <img id="vanId" key={van.id} src={van.Images[0].url}></img>
-                        </Link>
+                        </Link> */}
                         <div className='van__info'>
                             <h2>{van.title}</h2>
                             <p>Vehicle Capacity: {van.totalPassengers} passengers</p>

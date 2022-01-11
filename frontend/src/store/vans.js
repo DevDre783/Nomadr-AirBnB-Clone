@@ -16,18 +16,18 @@ const loadOne = (van) => {
         type: LOAD_ONE,
         van
     }
-}
+};
 
 const addOneVan = (van) => {
     return {
         type: ADD_ONE,
         van
     }
-}
+};
 
 export const getAllVans = () => async (dispatch) => {
     const response = await csrfFetch('/api/vans');
-    if(response.ok) {
+    if (response.ok) {
         const vans = await response.json();
         dispatch(loadAll(vans));
     }
@@ -39,7 +39,24 @@ export const getOneVan = (id) => async (dispatch) => {
         const van = await response.json();
         dispatch(loadOne(van));
     }
-    return
+};
+
+export const postVan = ( van ) => async dispatch => {
+    const res = await csrfFetch(`/api/host`, {
+       method: 'POST',
+       headers: { 'Content-Type': 'application/json' },
+       body: JSON.stringify(van)
+   });
+   if (!res.ok) {
+       let error = await res.json();
+       return error;
+   }
+
+   const payload = await res.json();
+   console.log("addVan THUNK", payload);
+   await dispatch(addOneVan(payload));
+
+   return payload;
 }
 
 const initialState = {
@@ -47,7 +64,7 @@ const initialState = {
 };
 
 const vansReducer = (state = initialState, action) => {
-    switch(action.type) {
+    switch (action.type) {
         case LOAD_ALL: {
             const allVans = [];
             action.listOfVans.forEach(van => {
@@ -60,7 +77,7 @@ const vansReducer = (state = initialState, action) => {
             }
         }
         case LOAD_ONE: {
-            if(state[action.van.vanId]) {
+            if (state[action.van.vanId]) {
                 const newState = {
                     ...state,
                     [action.van.vanId]: action.van
@@ -77,24 +94,24 @@ const vansReducer = (state = initialState, action) => {
             }
         }
         case ADD_ONE: {
-            if (state[action.van.id]) {
-              const newState = {
-                ...state,
-                [action.van.id]: action.van
-              };
-              const vanList = newState.list.map(id => newState[id]);
-              vanList.push(action.van);
-              
-              return newState;
+            if (!state[action.van.id]) {
+                const newState = {
+                    ...state,
+                    [action.van.id]: action.van
+                };
+                const vanList = newState.listOfVans.map(id => newState[id]);
+                vanList.push(action.van);
+                newState.listOfVans = action.listOfVans;
+                return newState;
             }
             return {
-              ...state,
-              [action.van.id]: {
-                ...state[action.van.id],
-                ...action.van,
-              }
-            };
-          }
+                ...state,
+                [action.van.id]: {
+                    ...state[action.van.id],
+                    ...action.van
+                }
+            }
+        }
         default:
             return state
     }

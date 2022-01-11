@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Redirect } from "react-router-dom";
-import {states} from '../utils'
+import { Redirect, useHistory } from "react-router-dom";
+import { postVan } from "../../store/vans";
+import {states} from '../utils';
+
 
 function VanHostForm() {
+    const session = useSelector(state => state.session);
     const [title, setTitle] = useState()
     const [country, setCountry] = useState()
     const [state, setState] = useState()
@@ -11,9 +14,10 @@ function VanHostForm() {
     const [address, setAddress] = useState()
     const [zipCode, setZipCode] = useState()
     const [description, setDescription] = useState()
-    const [cost, setCost] = useState()
-    const [passenger, setPassenger] = useState()
-    console.log(states)
+    const [costPerNight, setCostPerNight] = useState()
+    const [totalPassengers, setTotalPassengers] = useState()
+    const dispatch = useDispatch();
+    const history = useHistory();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -32,10 +36,9 @@ function VanHostForm() {
           zipCode
         };
 
-        let createdSpot;
-
+        let createdVan;
         try {
-            createdSpot = await dispatch(addVan(payload));
+            createdVan = await dispatch(postVan(payload));
         } catch (error) {
             throw new Error("This did not work!!")
             // if (error instanceof ValidationError) setErrorMessages(error.errors);
@@ -43,7 +46,16 @@ function VanHostForm() {
             // // "Error: "
             // else setErrorMessages({ overall: error.toString().slice(7) })
         }
-    }
+        //!!END
+        if (createdVan) {
+        //     //!!START SILENT
+        //     setErrorMessages({});
+        //     //!!END
+            console.log(createdVan)
+            history.push(`/vans/${createdVan.id.id}`);
+        //     hideForm();
+        }
+    };
 
     return (
         <div>
@@ -100,14 +112,14 @@ function VanHostForm() {
                 <input
                     type='number'
                     placeholder="Cost Per Night"
-                    value={cost}
-                    onChange={e => setCost(e.target.value)}
+                    value={costPerNight}
+                    onChange={e => setCostPerNight(e.target.value)}
                 />
                 <input
                     type='number'
                     placeholder="Passengers"
-                    value={passenger}
-                    onChange={e => setPassenger(e.target.value)}
+                    value={totalPassengers}
+                    onChange={e => setTotalPassengers(e.target.value)}
                 />
                 <button>Submit</button>
             </form>
