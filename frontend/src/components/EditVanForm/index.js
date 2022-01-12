@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Redirect, useHistory } from "react-router-dom";
+import { Link, Redirect, useHistory } from "react-router-dom";
 import { postVan } from "../../store/vans";
 import {states} from '../utils';
 
@@ -20,7 +20,14 @@ function EditVanForm() {
     // Images
     const [url, setUrl] = useState('');
     // Amenities
-    
+    const [kitchen, setKitchen] = useState(false);
+    const [shower, setShower] = useState(false);
+    const [spareTire, setSpareTire] = useState(false);
+    const [firstAidKit, setFirstAidKit] = useState(false);
+    const [roadsideAssistance, setRoadsideAssistance] = useState(false);
+    const [roofRackStorage, setRoofRackStorage] = useState(false);
+    const [hotSpot, setHotSpot] = useState(false);
+    const [chargingStation, setChargingStation] = useState(false);
 
     const dispatch = useDispatch('');
     const history = useHistory('');
@@ -28,7 +35,6 @@ function EditVanForm() {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        //!!START SILENT
         const payload = {
           vans: {
             userId: session.user.id,
@@ -45,29 +51,26 @@ function EditVanForm() {
           image: {
             url
           },
-        //   amenities: {
-        //     kitchen,
-        //     shower,
-        //     spareTire,
-        //     firstAidKit,
-        //     roadsideAssistance,
-        //     roofRackStorage,
-        //     hotSpot,
-        //     chargingStation
-        //   }
+          amenities: {
+            kitchen,
+            shower,
+            spareTire,
+            firstAidKit,
+            roadsideAssistance,
+            roofRackStorage,
+            hotSpot,
+            chargingStation
+          }
         };
 
         let createdVan;
+
         try {
             createdVan = await dispatch(postVan(payload));
         } catch (error) {
             throw new Error("This did not work!!")
-            // if (error instanceof ValidationError) setErrorMessages(error.errors);
-            // // If error is not a ValidationError, add slice at the end to remove extra
-            // // "Error: "
-            // else setErrorMessages({ overall: error.toString().slice(7) })
         }
-        //!!END
+
         if (createdVan) {
             history.push(`/vans/${createdVan.id.id}`);
         }
@@ -75,8 +78,8 @@ function EditVanForm() {
 
 
     return (
-        <div>
-            <h1>Edit Van Form</h1>
+        <div className="edit__form">
+            <h1>Edit Host Form</h1>
             <form onSubmit={handleSubmit}>
                 <input
                     type='text'
@@ -146,7 +149,78 @@ function EditVanForm() {
                         onChange={(e) => setUrl(e.target.value)}
                     />
                 </label>
-                <button>Submit</button>
+                <label htmlFor="kitchen">Kitchen
+                    <input
+                        id="kitchen"
+                        type='checkbox'
+                        checked={kitchen}
+                        onChange={(e) => setKitchen(!kitchen)}
+                    />
+                </label>
+                <label htmlFor="shower">Shower
+                    <input
+                        id="shower"
+                        type='checkbox'
+                        checked={shower}
+                        onChange={(e) => setShower(!shower)}
+                    />
+                </label>
+                <label htmlFor="spareTire">Spare Tire
+                    <input
+                        id="spareTire"
+                        type='checkbox'
+                        checked={spareTire}
+                        onChange={(e) => setSpareTire(!spareTire)}
+                    />
+                </label>
+                <label htmlFor="firstAidKit">FirstAid Kit
+                    <input
+                        id="firstAidKit"
+                        type='checkbox'
+                        checked={firstAidKit}
+                        onChange={(e) => setFirstAidKit(!firstAidKit)}
+                    />
+                </label>
+                <label htmlFor="roadsideAssistance">Roadside Assistance
+                    <input
+                        id="roadsideAssistance"
+                        type='checkbox'
+                        checked={roadsideAssistance}
+                        onChange={(e) => setRoadsideAssistance(!roadsideAssistance)}
+                    />
+                </label>
+                <label htmlFor="roofRackStorage">RoofRack Storage
+                    <input
+                        id="roofRackStorage"
+                        type='checkbox'
+                        checked={roofRackStorage}
+                        onChange={(e) => setRoofRackStorage(!roofRackStorage)}
+                    />
+                </label>
+                <label htmlFor="hotSpot">Hotspot
+                    <input
+                        id="hotSpot"
+                        type='checkbox'
+                        checked={hotSpot}
+                        onChange={(e) => setHotSpot(!hotSpot)}
+                    />
+                </label>
+                <label htmlFor="chargingStation">Charging Station
+                    <input
+                        id="chargingStation"
+                        type='checkbox'
+                        checked={chargingStation}
+                        onChange={(e) => setChargingStation(!chargingStation)}
+                    />
+                </label>
+                <button
+                    className="edit-host-form"
+                    // disabled={validationErrors.length > 0}
+                    type="submit">Submit
+                </button>
+                <Link to={`/`}>
+                    <button>Cancel</button>
+                </Link>
             </form>
         </div>
     )

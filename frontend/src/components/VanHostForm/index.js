@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Redirect, useHistory } from "react-router-dom";
+import { Link, Redirect, useHistory } from "react-router-dom";
 import { postVan } from "../../store/vans";
 import {states} from '../utils';
 
@@ -35,7 +35,6 @@ function VanHostForm() {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        //!!START SILENT
         const payload = {
           vans: {
             userId: session.user.id,
@@ -65,6 +64,7 @@ function VanHostForm() {
         };
 
         let createdVan;
+
         try {
             createdVan = await dispatch(postVan(payload));
         } catch (error) {
@@ -78,8 +78,8 @@ function VanHostForm() {
 
 
     return (
-        <div>
-            <h1>Host Van Form</h1>
+        <div className="edit__form">
+            <h1>Host Your Van!</h1>
             <form onSubmit={handleSubmit}>
                 <input
                     type='text'
@@ -218,6 +218,9 @@ function VanHostForm() {
                     // disabled={validationErrors.length > 0}
                     type="submit">Submit
                 </button>
+                <Link to={`/`}>
+                    <button>Cancel</button>
+                </Link>
             </form>
         </div>
     )

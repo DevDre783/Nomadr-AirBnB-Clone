@@ -9,6 +9,7 @@ import Navigation from "./components/Navigation";
 import VanListings from "./components/VanListings";
 import VanDetailsPage from "./components/VanDetailsPage";
 import VanHostForm from "./components/VanHostForm";
+import EditVanForm from "./components/EditVanForm";
 import Home from "./components/HomePage";
 
 function App() {
@@ -40,6 +41,12 @@ function App() {
           </Route>
           <Route exact path='/host'>
             <VanHostForm />
+          </Route>
+          <Route exact path='/vans/:vanId/host'>
+            <EditVanForm />
+          </Route>
+          <Route path='/'>
+            <h1>Page Not Found.</h1>
           </Route>
         </Switch>
       )}

@@ -3,6 +3,7 @@ import { csrfFetch } from "./csrf";
 const LOAD_ALL = 'vans/LOAD_ALL';
 const LOAD_ONE = 'vans/LOAD_ONE';
 const ADD_ONE = 'vans/ADD_ONE';
+const DELETE_ONE = 'vans/DELETE_ONE';
 
 const loadAll = (listOfVans) => {
     return {
@@ -24,6 +25,13 @@ const addOneVan = (van) => {
         van
     }
 };
+
+const deleteOneVan = (vanId) => {
+    return {
+        type: DELETE_ONE,
+        vanId
+    }
+}
 
 export const getAllVans = () => async (dispatch) => {
     const response = await csrfFetch('/api/vans');
@@ -52,6 +60,19 @@ export const postVan = ( payload ) => async dispatch => {
 //    console.log("addVan THUNK", payload);
    await dispatch(addOneVan(van));
    return van;
+}
+
+export const deleteVan = (id) => async (dispatch) => {
+    const response = await csrfFetch(`/api/vans/${id}`, {
+        method: "DELETE"
+    });
+
+    console.log(response);
+
+    if (response.ok) {
+        const van = await response.json();
+        await dispatch(deleteOneVan(van));
+    }
 }
 
 const initialState = {
@@ -107,6 +128,11 @@ const vansReducer = (state = initialState, action) => {
                     ...action.van
                 }
             }
+        }
+        case DELETE_ONE: {
+            const newState = { ...state };
+            delete newState[action.vanId];
+            return newState;
         }
         default:
             return state;

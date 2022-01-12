@@ -6,6 +6,7 @@ const { handleValidationErrors } = require('../../utils/validation');
 
 const { setTokenCookie, restoreUser } = require('../../utils/auth');
 const { User, Van, Image, Amenity } = require('../../db/models');
+const { db } = require('../../config');
 const router = express.Router();
 
 
@@ -72,10 +73,28 @@ router.post('/host', requireAuth, asyncHandler(async (req, res) => {
     });
 }));
 
-router.put('/:vanId', asyncHandler(async function (req, res) {
+router.put('/:vanId', asyncHandler(async (req, res) => {
     const id = await Van.update(req.body);
     const van = await Van.one(id);
     return res.json(van);
+}));
+
+router.delete('/:vanId', asyncHandler(async (req, res) => {
+    const vanId = parseInt(req.params.vanId, 10);
+    const thisVan = await Van.findByPk(vanId);
+
+    console.log(thisVan);
+
+    if (thisVan) {
+        await thisVan.destroy(vanId);
+
+        res.json({ message: "Delete Successful" });
+    }
+
+    // const thisVan = parseInt(req.params.vanId, 10)
+
+    // Van.splice(thisVan, 1)
+    // res.json(users)
 }));
 
 module.exports = router;
