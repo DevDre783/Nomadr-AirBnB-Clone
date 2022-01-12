@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, Redirect, useHistory, useParams } from "react-router-dom";
 import { getOneVan, editVan } from "../../store/vans";
-import {states} from '../utils';
+import { states } from '../utils';
 
 
 function EditVanForm() {
@@ -34,6 +34,27 @@ function EditVanForm() {
     const [chargingStation, setChargingStation] = useState(vanInfo?.Amenities[0].chargingStation);
 
     const history = useHistory('');
+
+    // Errors
+    const [errors, setErrors] = useState([]);
+
+    useEffect(() => {
+        const validationErrors = [];
+
+        if (title.length < 5) validationErrors.push("Must provide a title longer than 5 characters for your listing.");
+        if (country.length === 0) validationErrors.push("Must provide the country.");
+        if (city.length === 0) validationErrors.push("Must provide a valid City.");
+        if (address.length === 0) validationErrors.push("Must provide an Address.");
+        if (zipCode.length < 5) validationErrors.push("Must provide a valid zipcode.");
+        if (description.length === 0) validationErrors.push("Please provide a brief description for your listing.");
+        if (description.length < 25) validationErrors.push("Description is too short, please provide more detail.");
+        if (!costPerNight || costPerNight === 0) validationErrors.push("Your listing cannot be free! Please provide a cost per night.");
+        if (!totalPassengers) validationErrors.push("Must provide the total amount of passengers allowed.");
+        if (!url.includes("http" || "https")) validationErrors.push("MUST provide at least one VALID image URL (http or https).");
+
+        setErrors(validationErrors);
+
+    }, [title, country, city, address, zipCode, description, costPerNight, totalPassengers, url]);
 
     // console.log(“Edit form”, spotInfo?.Images[0]?.id)
     useEffect(() => {
@@ -78,7 +99,7 @@ function EditVanForm() {
         setCostPerNight(localcostPerNight)
         const localTotalPassengers = localStorage.getItem('totalPassengers');
         setTotalPassengers(localTotalPassengers)
-        const localUrl= localStorage.getItem('url');
+        const localUrl = localStorage.getItem('url');
         setUrl(localUrl)
         const localKitchen = localStorage.getItem('kitchen');
         setKitchen(localKitchen === 'true' ? true : false)
@@ -102,33 +123,33 @@ function EditVanForm() {
         e.preventDefault();
 
         const payload = {
-          vans: {
-            userId: session.user.id,
-            address,
-            city,
-            state,
-            country,
-            title,
-            description,
-            costPerNight,
-            totalPassengers,
-            zipCode
-          },
-          image: {
-            id: vanInfo?.Images[0]?.id,
-            url
-          },
-          amenities: {
-            id: vanInfo?.Amenities[0]?.id,
-            kitchen,
-            shower,
-            spareTire,
-            firstAidKit,
-            roadsideAssistance,
-            roofRackStorage,
-            hotSpot,
-            chargingStation
-          }
+            vans: {
+                userId: session.user.id,
+                address,
+                city,
+                state,
+                country,
+                title,
+                description,
+                costPerNight,
+                totalPassengers,
+                zipCode
+            },
+            image: {
+                id: vanInfo?.Images[0]?.id,
+                url
+            },
+            amenities: {
+                id: vanInfo?.Amenities[0]?.id,
+                kitchen,
+                shower,
+                spareTire,
+                firstAidKit,
+                roadsideAssistance,
+                roofRackStorage,
+                hotSpot,
+                chargingStation
+            }
         };
 
         let createdVan;
@@ -140,7 +161,7 @@ function EditVanForm() {
             throw new Error("This did not work!!")
         }
         console.log(createdVan);
-        
+
         if (createdVan) {
             history.push(`/vans/${createdVan.id.id}`);
             localStorage.clear();
@@ -151,6 +172,11 @@ function EditVanForm() {
     return (
         <div className="edit__form">
             <h1>Edit Host Form</h1>
+            <ul className="editForm-errors">
+                {errors.map(error => (
+                    <li key={error}>{error}</li>
+                ))}
+            </ul>
             <form onSubmit={handleSubmit}>
                 <input
                     type='text'
@@ -169,7 +195,7 @@ function EditVanForm() {
                     placeholder="State"
                     value={state}
                     onChange={e => setState(e.target.value)}
-                    >
+                >
                     {states.map(state => (
                         <option key={state}>
                             {state}
@@ -286,7 +312,7 @@ function EditVanForm() {
                 </label>
                 <button
                     className="edit-host-form"
-                    // disabled={validationErrors.length > 0}
+                    disabled={errors.length > 0}
                     type="submit">Submit
                 </button>
                 <Link to={`/`}>

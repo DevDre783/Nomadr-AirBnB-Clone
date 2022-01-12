@@ -10,17 +10,44 @@ const { db } = require('../../config');
 const router = express.Router();
 
 
-// USE FOR VALIDATIONS LATER
-// const validateLogin = [
-//     check('credential')
-//         .exists({ checkFalsy: true })
-//         .notEmpty()
-//         .withMessage('Please provide a valid email or username.'),
-//     check('password')
-//         .exists({ checkFalsy: true })
-//         .withMessage('Please provide a password.'),
-//     handleValidationErrors,
-// ];
+const vanHostForm = [
+    check('address')
+        .exists({ checkFalsy: true })
+        .isLength({ max: 255 })
+        .withMessage("Address must be less 255 characters"),
+    check('city')
+        .exists({ checkFalsy: true })
+        .isLength({ max: 255 })
+        .withMessage("City must be less 255 characters"),
+    check('state')
+        .exists({ checkFalsy: true })
+        .isLength({ max: 50 })
+        .withMessage("City must be less 255 characters"),
+    check('country')
+        .exists({ checkFalsy: true })
+        .isLength({ max: 50 })
+        .withMessage("Country must be less 50 characters"),
+    check('title')
+        .exists({ checkFalsy: true })
+        .isLength({ max: 100 })
+        .withMessage("Title must be less 100 characters"),
+    check('description')
+        .exists({ checkFalsy: true })
+        .withMessage("Please provide a description"),
+    check('costPerNight')
+        .exists({ checkFalsy: true })
+        .withMessage("Please provide a price per night"),
+    check('zipCode')
+        .exists({ checkFalsy: true })
+        .withMessage("Please provide a valid zip code"),
+    check('totalPassengers')
+        .exists({ checkFalsy: true })
+        .withMessage("Please provide number of total passengers allowed."),
+    check('url')
+        .exists({ checkFalsy: true })
+        .isLength({ max: 255 })
+        .withMessage("Please provide a valid zip code"),
+];
 
 
 // GET  VANS - all the vans
@@ -46,7 +73,7 @@ router.get('/:vanId', asyncHandler(async (req, res) => {
     res.json(specificVan);
 }));
 
-router.post('/host', requireAuth, asyncHandler(async (req, res) => {
+router.post('/host', vanHostForm, requireAuth, asyncHandler(async (req, res) => {
     const { image, vans, amenities } = req.body;
     const id = await Van.create(vans);
     const newImageUrl = {
