@@ -5,7 +5,7 @@ const { check } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation');
 
 const { setTokenCookie, restoreUser } = require('../../utils/auth');
-const { User, Van, Image, Amenity } = require('../../db/models');
+const { Van, Image, Amenity } = require('../../db/models');
 const { db } = require('../../config');
 const router = express.Router();
 
@@ -73,8 +73,8 @@ router.post('/host', requireAuth, asyncHandler(async (req, res) => {
     });
 }));
 
-router.put('/:vanId/host', requireAuth, asyncHandler(async (req, res) => {
-    console.log("here")
+router.put('/:id/host', requireAuth, asyncHandler(async (req, res) => {
+    console.log("here");
     const vanId = parseInt(req.params.id, 10);
     const currVan = await Van.findByPk(vanId);
 
@@ -116,8 +116,8 @@ router.put('/:vanId/host', requireAuth, asyncHandler(async (req, res) => {
     })
 }))
 
-router.delete('/:vanId', asyncHandler(async (req, res) => {
-    const vanId = parseInt(req.params.vanId, 10);
+router.delete('/:id', asyncHandler(async (req, res) => {
+    const vanId = parseInt(req.params.id, 10);
     const thisVan = await Van.findByPk(vanId, {
         include: [Image, Amenity]
     });

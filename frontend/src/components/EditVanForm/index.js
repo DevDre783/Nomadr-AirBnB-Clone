@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, Redirect, useHistory, useParams } from "react-router-dom";
-import { getOneVan, postVan } from "../../store/vans";
+import { getOneVan, editVan } from "../../store/vans";
 import {states} from '../utils';
 
 
 function EditVanForm() {
     const dispatch = useDispatch();
     const session = useSelector(state => state.session);
+    // console.log(session);
     const { vanId } = useParams();
     const vanInfo = useSelector(state => state.vans[vanId])
     // Vans
@@ -16,89 +17,86 @@ function EditVanForm() {
     const [state, setState] = useState(vanInfo?.state);
     const [city, setCity] = useState(vanInfo?.city);
     const [address, setAddress] = useState(vanInfo?.address);
-    const [zipCode, setZipCode] = useState(vanInfo?.title);
-    const [description, setDescription] = useState(vanInfo?.title);
-    const [costPerNight, setCostPerNight] = useState(vanInfo?.title);
-    const [totalPassengers, setTotalPassengers] = useState(vanInfo?.title);
+    const [zipCode, setZipCode] = useState(vanInfo?.zipCode);
+    const [description, setDescription] = useState(vanInfo?.description);
+    const [costPerNight, setCostPerNight] = useState(vanInfo?.costPerNight);
+    const [totalPassengers, setTotalPassengers] = useState(vanInfo?.totalPassengers);
     // Images
-    const [url, setUrl] = useState('');
+    const [url, setUrl] = useState(vanInfo?.Images[0].url);
     // Amenities
-    const [kitchen, setKitchen] = useState(false);
-    const [shower, setShower] = useState(false);
-    const [spareTire, setSpareTire] = useState(false);
-    const [firstAidKit, setFirstAidKit] = useState(false);
-    const [roadsideAssistance, setRoadsideAssistance] = useState(false);
-    const [roofRackStorage, setRoofRackStorage] = useState(false);
-    const [hotSpot, setHotSpot] = useState(false);
-    const [chargingStation, setChargingStation] = useState(false);
+    const [kitchen, setKitchen] = useState(vanInfo?.Amenities[0].kitchen);
+    const [shower, setShower] = useState(vanInfo?.Amenities[0].shower);
+    const [spareTire, setSpareTire] = useState(vanInfo?.Amenities[0].spareTire);
+    const [firstAidKit, setFirstAidKit] = useState(vanInfo?.Amenities[0].firstAidKit);
+    const [roadsideAssistance, setRoadsideAssistance] = useState(vanInfo?.Amenities[0].roadsideAssistance);
+    const [roofRackStorage, setRoofRackStorage] = useState(vanInfo?.Amenities[0].roofRackStorage);
+    const [hotSpot, setHotSpot] = useState(vanInfo?.Amenities[0].hotSpot);
+    const [chargingStation, setChargingStation] = useState(vanInfo?.Amenities[0].chargingStation);
 
-    const dispatch = useDispatch('');
     const history = useHistory('');
 
     // console.log(“Edit form”, spotInfo?.Images[0]?.id)
-    // useEffect(() => {
-    //     dispatch(getOneVan(vanId))
-    //     if (title) localStorage.setItem('title', spotInfo?.title)
-    //     if (country) localStorage.setItem('country', spotInfo?.country)
-    //     if (state) localStorage.setItem('state', spotInfo?.state)
-    //     if (city) localStorage.setItem('city', spotInfo?.city)
-    //     if (address) localStorage.setItem('address', spotInfo?.address)
-    //     if (zipCode) localStorage.setItem('zipCode', spotInfo?.zipCode)
-    //     if (description) localStorage.setItem('description', spotInfo?.description)
-    //     if (price) localStorage.setItem('price', spotInfo?.price)
-    //     if (guests) localStorage.setItem('guests', spotInfo?.guests)
-    //     if (bedrooms) localStorage.setItem('bedrooms', spotInfo?.bedrooms)
-    //     if (bathrooms) localStorage.setItem('bathrooms', spotInfo?.bathrooms)
-    //     if (url) localStorage.setItem('url', spotInfo?.Images[0]?.url)
-    //     if (kitchen) localStorage.setItem('kitchen', spotInfo?.Amenities[0]?.kitchen)
-    //     if (privateBeachAccess) localStorage.setItem('privateBeachAccess', spotInfo?.Amenities[0]?.privateBeachAccess)
-    //     if (firePlace) localStorage.setItem('firePlace', spotInfo?.Amenities[0]?.firePlace)
-    //     if (parking) localStorage.setItem('parking', spotInfo?.Amenities[0]?.parking)
-    //     if (pool) localStorage.setItem('pool', spotInfo?.Amenities[0].pool)
-    //     if (hotTub) localStorage.setItem('hotTub', spotInfo?.Amenities[0]?.hotTub)
-    //     if (pets) localStorage.setItem('pets', spotInfo?.Amenities[0]?.pets)
-    // }, [])
-    // useEffect(() => {
-    //     dispatch(getOneSpot(spotId))
-    //     const localTitle = localStorage.getItem(“title”)
-    //     setTitle(localTitle)
-    //     const localCountry = localStorage.getItem(“country”);
-    //     setCountry(localCountry)
-    //     const localState = localStorage.getItem(“state”);
-    //     setState(localState)
-    //     const localCity = localStorage.getItem(“city”);
-    //     setCity(localCity)
-    //     const localAddress = localStorage.getItem(“address”);
-    //     setAddress(localAddress)
-    //     const localZipCode = localStorage.getItem(“zipCode”);
-    //     setZipCode(localZipCode)
-    //     const localDescription = localStorage.getItem(“description”);
-    //     setDescription(localDescription)
-    //     const localPrice = localStorage.getItem(“price”);
-    //     setPrice(localPrice)
-    //     const localGuests = localStorage.getItem(“guests”);
-    //     setGuests(localGuests)
-    //     const localBedrooms = localStorage.getItem(“bedrooms”);
-    //     setBedrooms(localBedrooms)
-    //     const localBathrooms = localStorage.getItem(“bathrooms”);
-    //     setBathrooms(localBathrooms)
-    //     const localUrl= localStorage.getItem(“url”);
-    //     setUrl(localUrl)
-    //     const localKitchen = localStorage.getItem(“kitchen”);
-    //     setKitchen(localKitchen === ‘true’ ? true : false)
-    //     const localPrivateBeachAccess = localStorage.getItem(“privateBeachAccess”);
-    //     setPrivateBeachAccess(localPrivateBeachAccess === ‘true’ ? true : false)
-    //     const localFirePlace = localStorage.getItem(“firePlace”);
-    //     setFirePlace(localFirePlace === ‘true’ ? true : false)
-    //     const localParking = localStorage.getItem(“parking”);
-    //     setParking(localParking === ‘true’ ? true : false)
-    //     const localPool = localStorage.getItem(“pool”);
-    //     setPool(localPool === ‘true’ ? true : false)
-    //     const localHotTub = localStorage.getItem(“hotTub”);
-    //     setHotTub(localHotTub === ‘true’ ? true : false)
-    //     const localPets = localStorage.getItem(“pets”);
-    //     setPets(localPets === ‘true’ ? true : false)
-    // }, [])
+    useEffect(() => {
+        dispatch(getOneVan(vanId))
+        if (title) localStorage.setItem('title', vanInfo?.title)
+        if (country) localStorage.setItem('country', vanInfo?.country)
+        if (state) localStorage.setItem('state', vanInfo?.state)
+        if (city) localStorage.setItem('city', vanInfo?.city)
+        if (address) localStorage.setItem('address', vanInfo?.address)
+        if (zipCode) localStorage.setItem('zipCode', vanInfo?.zipCode)
+        if (description) localStorage.setItem('description', vanInfo?.description)
+        if (costPerNight) localStorage.setItem('costPerNight', vanInfo?.costPerNight)
+        if (totalPassengers) localStorage.setItem('totalPassengers', vanInfo?.totalPassengers)
+        if (url) localStorage.setItem('url', vanInfo?.Images[0]?.url)
+        if (kitchen) localStorage.setItem('kitchen', vanInfo?.Amenities[0]?.kitchen)
+        if (shower) localStorage.setItem('shower', vanInfo?.Amenities[0]?.shower)
+        if (spareTire) localStorage.setItem('spareTire', vanInfo?.Amenities[0]?.spareTire)
+        if (firstAidKit) localStorage.setItem('firstAidKit', vanInfo?.Amenities[0]?.firstAidKit)
+        if (roadsideAssistance) localStorage.setItem('roadsideAssistance', vanInfo?.Amenities[0].roadsideAssistance)
+        if (roofRackStorage) localStorage.setItem('roofRackStorage', vanInfo?.Amenities[0]?.roofRackStorage)
+        if (hotSpot) localStorage.setItem('hotSpot', vanInfo?.Amenities[0]?.hotSpot)
+        if (chargingStation) localStorage.setItem('chargingStation', vanInfo?.Amenities[0]?.chargingStation)
+    }, [])
+
+    useEffect(() => {
+        dispatch(getOneVan(vanId))
+        const localTitle = localStorage.getItem('title')
+        setTitle(localTitle)
+        const localCountry = localStorage.getItem('country');
+        setCountry(localCountry)
+        const localState = localStorage.getItem('state');
+        setState(localState)
+        const localCity = localStorage.getItem('city');
+        setCity(localCity)
+        const localAddress = localStorage.getItem('address');
+        setAddress(localAddress)
+        const localZipCode = localStorage.getItem('zipCode');
+        setZipCode(localZipCode)
+        const localDescription = localStorage.getItem('description');
+        setDescription(localDescription)
+        const localcostPerNight = localStorage.getItem('costPerNight');
+        setCostPerNight(localcostPerNight)
+        const localTotalPassengers = localStorage.getItem('totalPassengers');
+        setTotalPassengers(localTotalPassengers)
+        const localUrl= localStorage.getItem('url');
+        setUrl(localUrl)
+        const localKitchen = localStorage.getItem('kitchen');
+        setKitchen(localKitchen === 'true' ? true : false)
+        const localshower = localStorage.getItem('shower');
+        setShower(localshower === 'true' ? true : false)
+        const localSpareTire = localStorage.getItem('spareTire');
+        setSpareTire(localSpareTire === 'true' ? true : false)
+        const localFirstAidKit = localStorage.getItem('firstAidKit');
+        setFirstAidKit(localFirstAidKit === 'true' ? true : false)
+        const localRoadsideAssistance = localStorage.getItem('roadsideAssistance');
+        setRoadsideAssistance(localRoadsideAssistance === 'true' ? true : false)
+        const localRoofRackStorage = localStorage.getItem('roofRackStorage');
+        setRoofRackStorage(localRoofRackStorage === 'true' ? true : false)
+        const localHotSpot = localStorage.getItem('hotSpot');
+        setHotSpot(localHotSpot === 'true' ? true : false)
+        const localChargingStation = localStorage.getItem('chargingStation');
+        setChargingStation(localChargingStation === 'true' ? true : false)
+    }, [])
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -117,9 +115,11 @@ function EditVanForm() {
             zipCode
           },
           image: {
+            id: vanInfo?.Images[0]?.id,
             url
           },
           amenities: {
+            id: vanInfo?.Amenities[0]?.id,
             kitchen,
             shower,
             spareTire,
@@ -130,18 +130,20 @@ function EditVanForm() {
             chargingStation
           }
         };
-        console.log("------->", payload);
 
         let createdVan;
 
         try {
-            createdVan = await dispatch(postVan(payload));
+            console.log("------->", payload);
+            createdVan = await dispatch(editVan(payload, vanId));
         } catch (error) {
             throw new Error("This did not work!!")
         }
-
+        console.log(createdVan);
+        
         if (createdVan) {
             history.push(`/vans/${createdVan.id.id}`);
+            localStorage.clear();
         }
     };
 

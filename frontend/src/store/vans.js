@@ -63,14 +63,20 @@ export const postVan = ( payload ) => async dispatch => {
 }
 
 export const editVan = (payload, id) => async(dispatch) => {
+    console.log("PAYLOAD----", payload);
     const response = await csrfFetch(`/api/vans/${id}/host`, {
         method: 'PUT',
         headers: {"Content-Type": 'application/json'},
         body: JSON.stringify(payload)
     });
 
+    console.log("RESPONSE:", response);
+
     const van = await response.json();
+    console.log("VAN", van);
     dispatch(addOneVan(van));
+
+    return van;
 }
 
 export const deleteVan = (id) => async (dispatch) => {
