@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useParams } from 'react-router-dom';
+import { Link, useHistory, useParams } from 'react-router-dom';
 import { getOneVan } from "../../store/vans";
 import { deleteVan } from "../../store/vans";
 
@@ -11,6 +11,7 @@ function VanDetailsPage() {
     const oneVan = useSelector(state => state.vans[vanId]);
     const sessionUser = useSelector(state => state.session.user);
     const dispatch = useDispatch();
+    const history = useHistory();
     // console.log(oneVan);
 
     useEffect(() => {
@@ -18,11 +19,22 @@ function VanDetailsPage() {
         dispatch(deleteVan(vanId));
 
         // console.log('I work !!');
-    },[dispatch, vanId]);
+    }, [dispatch, vanId]);
 
-    const deleteButtonClick = () => {
-        console.log('hello?')
-        deleteVan(vanId);
+    console.log(vanId);
+
+    const deleteBtn = async (e) => {
+        e.preventDefault()
+        let deleteVanRes;
+        try {
+            console.log("OneVan", oneVan)
+            deleteVanRes = await dispatch(deleteVan(oneVan, vanId));
+        } catch (error) {
+            throw new Error("Error - Resource not found")
+        }
+        if (deleteVanRes.message === "Delete Successful") {
+           history.push("/vans")
+        }
     }
 
     return (
@@ -34,9 +46,7 @@ function VanDetailsPage() {
                     <Link to={`/vans/${oneVan?.id}/host`}>
                         <button>Edit</button>
                     </Link>
-                    <Link to={`/vans/${oneVan?.id}`}>
-                        <button onClick={(e) => deleteButtonClick()}>Delete</button>
-                    </Link>
+                    <button onClick={deleteBtn}>Delete</button>
                 </>
             }
             <h3>{oneVan?.description}</h3>

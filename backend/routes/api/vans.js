@@ -117,19 +117,34 @@ router.put('/:id/host', requireAuth, asyncHandler(async (req, res) => {
 }))
 
 router.delete('/:id', asyncHandler(async (req, res) => {
+    console.log("DELETE ROUTE","HIIIIII");
+
+    const { id, Images, Amenities } = req.body
     const vanId = parseInt(req.params.id, 10);
-    const thisVan = await Van.findByPk(vanId, {
-        include: [Image, Amenity]
-    });
+    const imageId = Images[0].id;
+    const amenitiesId = Amenities[0].id;
 
-    console.log('this is working');
+    // console.log("TEST1", vanId);
+    // console.log("TEST2", Images);
+    // console.log("TEST3", amenitiesId);
 
-    if (thisVan) {
-        await thisVan.destroy();
+    const currVan = await Van.findByPk(vanId);
+    const currImage = await Image.findByPk(imageId);
+    const currAmenity = await Amenity.findByPk(amenitiesId);
+
+    console.log("DELETE BODY VAN ====>", currVan)
+    console.log("DELETE BODY Image ===>", currImage)
+    console.log("DELETE BODY Amenities ===> ", currAmenity)
+
+
+    if (currVan && currImage && currAmenity) {
+        await currAmenity.destroy();
+        await currImage.destroy();
+        await currVan.destroy();
 
         res.json({ message: "Delete Successful" });
     } else {
-        console.log('unsuccesful');
+        console.log('unsuccessful');
     }
 
     res.json({ message: "Delete Unsuccessful" });

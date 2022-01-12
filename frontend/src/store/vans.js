@@ -49,24 +49,24 @@ export const getOneVan = (id) => async (dispatch) => {
     }
 };
 
-export const postVan = ( payload ) => async dispatch => {
+export const postVan = (payload) => async dispatch => {
     const res = await csrfFetch(`/api/vans/host`, {
-       method: 'POST',
-       headers: { 'Content-Type': 'application/json' },
-       body: JSON.stringify(payload)
-   });
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+    });
 
-   const van = await res.json();
-//    console.log("addVan THUNK", payload);
-   await dispatch(addOneVan(van));
-   return van;
+    const van = await res.json();
+    //    console.log("addVan THUNK", payload);
+    await dispatch(addOneVan(van));
+    return van;
 }
 
-export const editVan = (payload, id) => async(dispatch) => {
+export const editVan = (payload, id) => async (dispatch) => {
     console.log("PAYLOAD----", payload);
     const response = await csrfFetch(`/api/vans/${id}/host`, {
         method: 'PUT',
-        headers: {"Content-Type": 'application/json'},
+        headers: { "Content-Type": 'application/json' },
         body: JSON.stringify(payload)
     });
 
@@ -79,16 +79,19 @@ export const editVan = (payload, id) => async(dispatch) => {
     return van;
 }
 
-export const deleteVan = (id) => async (dispatch) => {
+export const deleteVan = (payload, id) => async (dispatch) => {
+    console.log("VAN ID", id);
     const response = await csrfFetch(`/api/vans/${id}`, {
         method: "DELETE",
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload, id)
     });
-
-    console.log("yo response:", response);
 
     if (response.ok) {
         const van = await response.json();
+        console.log("VAN", van);
         await dispatch(deleteOneVan(van));
+        return van;
     }
 }
 
@@ -147,16 +150,10 @@ const vansReducer = (state = initialState, action) => {
             }
         }
         case DELETE_ONE: {
-            return {
-              ...state,
-              [action.vanId]: {
-                ...state[action.vanId],
-                listOfVans: state[action.vanId].listOfVans.filter(
-                  (van) => van.id !== action.vanId
-                ),
-              },
-            };
-          }
+            const newState = { ...state };
+            delete newState[action.vanId];
+            return newState;
+        }
         default:
             return state;
     }
