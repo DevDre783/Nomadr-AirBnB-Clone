@@ -73,28 +73,66 @@ router.post('/host', requireAuth, asyncHandler(async (req, res) => {
     });
 }));
 
-router.put('/:vanId', asyncHandler(async (req, res) => {
-    const id = await Van.update(req.body);
-    const van = await Van.one(id);
-    return res.json(van);
-}));
+router.put('/:vanId/host', requireAuth, asyncHandler(async (req, res) => {
+    console.log("here")
+    const vanId = parseInt(req.params.id, 10);
+    const currVan = await Van.findByPk(vanId);
+
+    const { image, vans, amenities } = req.body
+    // update spot
+    const id = await currVan.update(vans)
+    // console.log("FLAGGGGGGG", image.id)
+
+    //  update image
+    const newImageUrl = {
+        id: image.id,
+        vanId: id.id,
+        url: image.url
+    }
+
+    const currImage = await Image.findByPk(image.id);
+    // console.log(currImage, "<=========")
+    await currImage.update(newImageUrl)
+
+    console.log("AAAAAA", amenities)
+    // update amenity
+    const newAmenityList = {
+        spotId: id.id,
+        kitchen: amenities.kitchen,
+        shower: amenities.shower,
+        spareTire: amenities.spareTire,
+        firstAidKit: amenities.firstAidKit,
+        roadsideAssistance: amenities.roadsideAssistance,
+        roofRackStorage: amenities.roofRackStorage,
+        hotSpot: amenities.hotSpot,
+        chargingStation: amenities.chargingStation
+    }
+
+    const currAmenity = await Amenity.findByPk(amenities.id)
+    await currAmenity.update(newAmenityList);
+
+    return res.json({
+        id
+    })
+}))
 
 router.delete('/:vanId', asyncHandler(async (req, res) => {
     const vanId = parseInt(req.params.vanId, 10);
-    const thisVan = await Van.findByPk(vanId);
+    const thisVan = await Van.findByPk(vanId, {
+        include: [Image, Amenity]
+    });
 
-    console.log(thisVan);
+    console.log('this is working');
 
     if (thisVan) {
-        await thisVan.destroy(vanId);
+        await thisVan.destroy();
 
         res.json({ message: "Delete Successful" });
+    } else {
+        console.log('unsuccesful');
     }
 
-    // const thisVan = parseInt(req.params.vanId, 10)
-
-    // Van.splice(thisVan, 1)
-    // res.json(users)
+    res.json({ message: "Delete Unsuccessful" });
 }));
 
 module.exports = router;

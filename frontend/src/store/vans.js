@@ -62,12 +62,23 @@ export const postVan = ( payload ) => async dispatch => {
    return van;
 }
 
-export const deleteVan = (id) => async (dispatch) => {
-    const response = await csrfFetch(`/api/vans/${id}`, {
-        method: "DELETE"
+export const editVan = (payload, id) => async(dispatch) => {
+    const response = await csrfFetch(`/api/vans/${id}/host`, {
+        method: 'PUT',
+        headers: {"Content-Type": 'application/json'},
+        body: JSON.stringify(payload)
     });
 
-    console.log(response);
+    const van = await response.json();
+    dispatch(addOneVan(van));
+}
+
+export const deleteVan = (id) => async (dispatch) => {
+    const response = await csrfFetch(`/api/vans/${id}`, {
+        method: "DELETE",
+    });
+
+    console.log("yo response:", response);
 
     if (response.ok) {
         const van = await response.json();
@@ -130,10 +141,16 @@ const vansReducer = (state = initialState, action) => {
             }
         }
         case DELETE_ONE: {
-            const newState = { ...state };
-            delete newState[action.vanId];
-            return newState;
-        }
+            return {
+              ...state,
+              [action.vanId]: {
+                ...state[action.vanId],
+                listOfVans: state[action.vanId].listOfVans.filter(
+                  (van) => van.id !== action.vanId
+                ),
+              },
+            };
+          }
         default:
             return state;
     }

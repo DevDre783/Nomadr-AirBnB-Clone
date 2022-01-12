@@ -7,7 +7,7 @@ import { deleteVan } from "../../store/vans";
 
 function VanDetailsPage() {
     const { vanId } = useParams();
-    console.log(vanId);
+    // console.log(vanId);
     const oneVan = useSelector(state => state.vans[vanId]);
     const sessionUser = useSelector(state => state.session.user);
     const dispatch = useDispatch();
@@ -15,12 +15,14 @@ function VanDetailsPage() {
 
     useEffect(() => {
         dispatch(getOneVan(vanId));
+        dispatch(deleteVan(vanId));
 
         // console.log('I work !!');
     },[dispatch, vanId]);
 
-    const deleteButtonClick = async () => {
-        await deleteVan(vanId);
+    const deleteButtonClick = () => {
+        console.log('hello?')
+        deleteVan(vanId);
     }
 
     return (
@@ -32,7 +34,7 @@ function VanDetailsPage() {
                     <Link to={`/vans/${oneVan?.id}/host`}>
                         <button>Edit</button>
                     </Link>
-                    <Link to={`/vans`}>
+                    <Link to={`/vans/${oneVan?.id}`}>
                         <button onClick={(e) => deleteButtonClick()}>Delete</button>
                     </Link>
                 </>
