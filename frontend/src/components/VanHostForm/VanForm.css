@@ -2,14 +2,14 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 5%;
-    margin-bottom: 12%;
+    margin-top: 10%;
 }
 
 .the__form {
     border: 1.5px solid black;
     background-color: white;
     width: 375px;
+
     display: flex;
     position: absolute;
     flex-direction: column;
@@ -18,7 +18,6 @@
 }
 
 .image__container {
-    margin-top: 6%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -43,14 +42,20 @@
     flex-direction: column;
 }
 
-/* .hostForm__errors {
-    display: block;
-    justify-content: center;
-    align-items: center;
+.hostForm__errors {
     color: rgb(223, 54, 54);
     font-weight: bold;
-} */
+    position: absolute;
+}
 
-/* .move__errors {
-    margin-top: 10%;
-} */
+textarea {
+    margin-bottom: 20px;
+}
+
+.form-submit {
+    margin-bottom: 10px;
+}
+
+.form-cancel {
+    margin-bottom: 10px;
+}

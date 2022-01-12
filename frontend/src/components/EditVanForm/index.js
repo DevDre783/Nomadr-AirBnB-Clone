@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, Redirect, useHistory, useParams } from "react-router-dom";
 import { getOneVan, editVan } from "../../store/vans";
 import { states } from '../utils';
+import './EditVanForm.css'
 
 
 function EditVanForm() {
@@ -50,7 +51,7 @@ function EditVanForm() {
         if (description.length < 25) validationErrors.push("Description is too short, please provide more detail.");
         if (!costPerNight || costPerNight === 0) validationErrors.push("Your listing cannot be free! Please provide a cost per night.");
         if (!totalPassengers) validationErrors.push("Must provide the total amount of passengers allowed.");
-        if (!url.includes("http" || "https")) validationErrors.push("MUST provide at least one VALID image URL (http or https).");
+        if (!url.includes("http" || "https")) validationErrors.push("MUST provide at least one VALID photo for your listing (https).");
 
         setErrors(validationErrors);
 
@@ -170,155 +171,151 @@ function EditVanForm() {
 
 
     return (
-        <div className="edit__form">
-            <h1>Edit Host Form</h1>
-            <ul className="editForm-errors">
+        <div className="form__container">
+            {/* <ul className="hostForm__errors">
                 {errors.map(error => (
                     <li key={error}>{error}</li>
-                ))}
-            </ul>
-            <form onSubmit={handleSubmit}>
-                <input
-                    type='text'
-                    placeholder="Van Name"
-                    value={title}
-                    onChange={(e) => setTitle(e.target.value)}
-                />
-                <input
-                    type='text'
-                    placeholder="Country"
-                    value={country}
-                    onChange={e => setCountry(e.target.value)}
-                />
-                <select
-                    type='text'
-                    placeholder="State"
-                    value={state}
-                    onChange={e => setState(e.target.value)}
-                >
-                    {states.map(state => (
-                        <option key={state}>
-                            {state}
-                        </option>
                     ))}
-                </select>
-                <input
-                    type='text'
-                    placeholder="City"
-                    value={city}
-                    onChange={e => setCity(e.target.value)}
-                />
-                <input
-                    type='text'
-                    placeholder="Address"
-                    value={address}
-                    onChange={e => setAddress(e.target.value)}
-                />
-                <input
-                    type='number'
-                    placeholder="Zip Code"
-                    value={zipCode}
-                    onChange={e => setZipCode(e.target.value)}
-                />
-                <input
-                    type='text'
-                    placeholder="Description"
-                    value={description}
-                    onChange={e => setDescription(e.target.value)}
-                />
-                <input
-                    type='number'
-                    placeholder="Cost Per Night"
-                    value={costPerNight}
-                    onChange={e => setCostPerNight(e.target.value)}
-                />
-                <input
-                    type='number'
-                    placeholder="Passengers"
-                    value={totalPassengers}
-                    onChange={e => setTotalPassengers(e.target.value)}
-                />
-                <label> Image Url:
-                    <input
+            </ul> */}
+            <form className="the__form" onSubmit={handleSubmit}>
+                <div className="main__info">
+                <h1>Edit Listing</h1>
+                    Title<input
+                        type='text'
+                        placeholder="Van Name"
+                        value={title}
+                        onChange={(e) => setTitle(e.target.value)}
+                    />
+                    Country<input
+                        type='text'
+                        placeholder="Country"
+                        value={country}
+                        onChange={e => setCountry(e.target.value)}
+                    />
+                    State<select
+                        type='text'
+                        placeholder="State"
+                        value={state}
+                        onChange={e => setState(e.target.value)}
+                    >
+                        {states.map(state => (
+                            <option key={state}>
+                                {state}
+                            </option>
+                        ))}
+                    </select>
+                    City<input
+                        type='text'
+                        placeholder="City"
+                        value={city}
+                        onChange={e => setCity(e.target.value)}
+                    />
+                    Address<input
+                        type='text'
+                        placeholder="Address"
+                        value={address}
+                        onChange={e => setAddress(e.target.value)}
+                    />
+                    Zip Code<input
+                        type='number'
+                        placeholder="Zip Code"
+                        value={zipCode}
+                        onChange={e => setZipCode(e.target.value)}
+                    />
+                    Cost/Night<input
+                        type='number'
+                        placeholder="Cost Per Night"
+                        value={costPerNight}
+                        onChange={e => setCostPerNight(e.target.value)}
+                    />
+                    Total Passengers<input
+                        type='number'
+                        placeholder="Passengers"
+                        value={totalPassengers}
+                        onChange={e => setTotalPassengers(e.target.value)}
+                    />
+                    Image<input
                         type='string'
                         placeholder="image url"
                         value={url}
                         onChange={(e) => setUrl(e.target.value)}
                     />
-                </label>
-                <label htmlFor="kitchen">Kitchen
-                    <input
+                </div>
+
+                Amenities:
+                <div className="amenities__container">
+                    Kitchen<input
                         id="kitchen"
                         type='checkbox'
                         checked={kitchen}
                         onChange={(e) => setKitchen(!kitchen)}
                     />
-                </label>
-                <label htmlFor="shower">Shower
-                    <input
+                    Shower<input
                         id="shower"
                         type='checkbox'
                         checked={shower}
                         onChange={(e) => setShower(!shower)}
                     />
-                </label>
-                <label htmlFor="spareTire">Spare Tire
-                    <input
+                    Spare Tire<input
                         id="spareTire"
                         type='checkbox'
                         checked={spareTire}
                         onChange={(e) => setSpareTire(!spareTire)}
                     />
-                </label>
-                <label htmlFor="firstAidKit">FirstAid Kit
-                    <input
+                    FirstAid Kit<input
                         id="firstAidKit"
                         type='checkbox'
                         checked={firstAidKit}
                         onChange={(e) => setFirstAidKit(!firstAidKit)}
                     />
-                </label>
-                <label htmlFor="roadsideAssistance">Roadside Assistance
-                    <input
+                    Roadside Assistance<input
                         id="roadsideAssistance"
                         type='checkbox'
                         checked={roadsideAssistance}
                         onChange={(e) => setRoadsideAssistance(!roadsideAssistance)}
                     />
-                </label>
-                <label htmlFor="roofRackStorage">RoofRack Storage
-                    <input
+                    RoofRack Storage<input
                         id="roofRackStorage"
                         type='checkbox'
                         checked={roofRackStorage}
                         onChange={(e) => setRoofRackStorage(!roofRackStorage)}
                     />
-                </label>
-                <label htmlFor="hotSpot">Hotspot
-                    <input
+                    Hotspot<input
                         id="hotSpot"
                         type='checkbox'
                         checked={hotSpot}
                         onChange={(e) => setHotSpot(!hotSpot)}
                     />
-                </label>
-                <label htmlFor="chargingStation">Charging Station
-                    <input
+                    Charging Station<input
                         id="chargingStation"
                         type='checkbox'
                         checked={chargingStation}
                         onChange={(e) => setChargingStation(!chargingStation)}
                     />
-                </label>
+                </div>
+
+                Description<textarea
+                    style={{resize: "none"}}
+                    rows="6"
+                    cols="40"
+                    type='text'
+                    placeholder="Description"
+                    value={description}
+                    onChange={e => setDescription(e.target.value)}
+                />
                 <button
-                    className="edit-host-form"
+                    className="form-submit"
                     disabled={errors.length > 0}
                     type="submit">Submit
                 </button>
                 <Link to={`/`}>
-                    <button>Cancel</button>
+                    <button className="form-cancel">Cancel</button>
                 </Link>
             </form>
+
+            <div className="image__container">
+                <img className="form__image" src={`https://bearfoottheory.com/wp-content/uploads/2020/07/van-no-space.png`}></img>
+            </div>
         </div>
     )
 }

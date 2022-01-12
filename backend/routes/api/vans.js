@@ -11,42 +11,42 @@ const router = express.Router();
 
 
 const vanHostForm = [
-    check('address')
+    check('Van.address')
         .exists({ checkFalsy: true })
         .isLength({ max: 255 })
         .withMessage("Address must be less 255 characters"),
-    check('city')
+    check('Van.city')
         .exists({ checkFalsy: true })
         .isLength({ max: 255 })
         .withMessage("City must be less 255 characters"),
-    check('state')
+    check('Van.state')
         .exists({ checkFalsy: true })
         .isLength({ max: 50 })
         .withMessage("City must be less 255 characters"),
-    check('country')
+    check('Van.country')
         .exists({ checkFalsy: true })
         .isLength({ max: 50 })
         .withMessage("Country must be less 50 characters"),
-    check('title')
+    check('Van.title')
         .exists({ checkFalsy: true })
         .isLength({ max: 100 })
         .withMessage("Title must be less 100 characters"),
-    check('description')
+    check('Van.description')
         .exists({ checkFalsy: true })
         .withMessage("Please provide a description"),
-    check('costPerNight')
+    check('Van.costPerNight')
         .exists({ checkFalsy: true })
         .withMessage("Please provide a price per night"),
-    check('zipCode')
+    check('Van.zipCode')
         .exists({ checkFalsy: true })
         .withMessage("Please provide a valid zip code"),
-    check('totalPassengers')
+    check('Van.totalPassengers')
         .exists({ checkFalsy: true })
         .withMessage("Please provide number of total passengers allowed."),
-    check('url')
+    check('Image.url')
         .exists({ checkFalsy: true })
         .isLength({ max: 255 })
-        .withMessage("Please provide a valid zip code"),
+        .withMessage("Please provide a valid Image URL (http or https)"),
 ];
 
 
@@ -100,8 +100,8 @@ router.post('/host', vanHostForm, requireAuth, asyncHandler(async (req, res) => 
     });
 }));
 
-router.put('/:id/host', requireAuth, asyncHandler(async (req, res) => {
-    console.log("here");
+router.put('/:id/host', vanHostForm, requireAuth, asyncHandler(async (req, res) => {
+    // console.log("here");
     const vanId = parseInt(req.params.id, 10);
     const currVan = await Van.findByPk(vanId);
 
