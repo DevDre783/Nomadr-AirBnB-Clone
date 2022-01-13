@@ -49,6 +49,59 @@
     right: 21.9%;
 }
 
+.VanLife__container:hover .explore-handler {
+    height: 100%;
+}
+
+.VanLife__container {
+    margin-left: 7%;
+    justify-content: center;
+    position: relative;
+    width: 50%;
+}
+
+.VanLife__image {
+    border-radius: 30px;
+}
+
+.build__video {
+    border-radius: 30px;
+}
+
+.fa-share {
+    color: #ff444a;
+}
+
+.explore-handler {
+    position: absolute;
+    border-radius: 30px;
+    bottom: 0;
+    background-color: #ff444a;
+    overflow: hidden;
+    width: 87%;
+    height: 0;
+    transition: .5s ease;
+}
+
+.explore-btn {
+    background: none;
+    border: none;
+    color: whitesmoke;
+    font-size: 42px;
+    font-weight: bold;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.explore-handler:hover {
+    cursor: pointer;
+}
+
 .footer__image {
     width: 100%;
 }

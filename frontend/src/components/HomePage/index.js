@@ -17,6 +17,9 @@ function Home() {
             <div className='site-name'>Nomadr.</div>
             <div className='VanLife__container'>
                 <img className='VanLife__image' alt="Van-Life" src={'https://cdn.shopify.com/s/files/1/0458/2591/7081/products/campervan3-mockup_1024x.png?v=1630079365'}></img>
+                <div className='explore-handler'>
+                    <button className='explore-btn'>Explore</button>
+                </div>
             </div>
             <div className='build__container'>
                 <h2 className='build-title'>Full Van Build<i class="fas fa-share"></i></h2>
@@ -25,7 +28,7 @@ function Home() {
         <footer>
             // FOOTER: list languages used
             <div className='footImage__container'>
-                <img className='foot__image' alt="Van-Life" src={'../../../public/images/FORESTpng-portable-network-graphics-clip-art-vector-graphics-images-of-forest-trees-vector-rock-cafe-5ce61699e9a938.7338035915585829379571.png'}></img>
+                {/* <img className='foot__image' alt="Van-Life" src={'../../../public/images/FORESTpng-portable-network-graphics-clip-art-vector-graphics-images-of-forest-trees-vector-rock-cafe-5ce61699e9a938.7338035915585829379571.png'}></img> */}
             </div>
         </footer>
         </div>

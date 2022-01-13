@@ -27,7 +27,7 @@ body {
 }
 
 .vanstorent {
-    margin-left: 100px;
+    margin-left: 150px;
     /* padding-left: 20px; */
 }
 
@@ -111,7 +111,52 @@ body {
 }
 
 .logo:hover {
-    transform: scale(1.65)
+    transform: scale(1.65);
+    cursor: pointer;
+}
+
+.fa-bars {
+    padding-right: 10px;
+}
+
+.fa-user-circle {
+    padding-top: 3px;
+    padding-right: 10px;
+    height: 20px;
+    width: 20px;
+}
+
+.profile-dropdown {
+    padding: 35px;
+    position: absolute;
+    margin-right: 0;
+    margin-top: 1%;
+    border: black 1.5px solid;
+}
+
+.Dd-username {
+    font-size: 14pt;
+    font-weight: bold;
+    list-style: none;
+    padding-bottom: 15px;
+}
+
+.Dd-email {
+    list-style: none;
+    padding-bottom: 45px;
+}
+
+.logout-btn {
+    /* display: none; */
+    left: 50px;
+    list-style: none;
+    background: none;
+    border: none;
+    color: #FF5A5F;
+}
+
+.logout-btn:hover {
+    cursor: pointer;
 }
 
 .login {
