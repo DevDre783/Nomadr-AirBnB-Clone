@@ -148,7 +148,7 @@ function VanHostForm() {
                         onChange={e => setAddress(e.target.value)}
                     />
                     Zip Code<input
-                        type='number'
+                        type='text'
                         placeholder="Zip Code"
                         value={zipCode}
                         onChange={e => setZipCode(e.target.value)}

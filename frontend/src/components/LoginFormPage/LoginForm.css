@@ -1,4 +1,5 @@
 .login-form {
+    margin-top: 10%;
     color: rgb(255, 76, 56);
     display: flex;
     justify-content: center;
@@ -6,7 +7,25 @@
     flex-direction: column;
     justify-content: space-between;
     border: black solid 2px;
-    margin-left: 40%;
-    margin-right: 40%;
+    margin-left: 42%;
+    margin-right: 42%;
     padding-bottom: 30px;
+}
+
+label {
+    margin-bottom: 20px;
+}
+
+.login-btn {
+    margin-top: 40px;
+    margin-bottom: 50px;
+}
+
+.tree__container {
+    font-size: 18pt;
+}
+
+.fa-tree {
+    transform: scale(1.8);
+    padding-left: 10px;
 }

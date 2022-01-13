@@ -70,7 +70,10 @@ function SignupFormPage() {
                     required
                 />
             </label>
-            <button type="submit">Sign Up</button>
+            <button className="signup-btn" type="submit">Sign Up</button>
+            <div className='tree__container'>
+                Nomadr. <i className="fas fa-tree"></i>
+            </div>
         </form>
     );
 }

@@ -32,8 +32,7 @@ function LoginFormPage() {
       <ul>
         {errors.map((error, idx) => <li key={idx}>{error}</li>)}
       </ul>
-      <label>
-        Username or Email
+      <label>Username or Email:
         <input
           type="text"
           value={credential}
@@ -41,8 +40,7 @@ function LoginFormPage() {
           required
         />
       </label>
-      <label>
-        Password
+      <label>Password:
         <input
           type="password"
           value={password}
@@ -50,7 +48,10 @@ function LoginFormPage() {
           required
         />
       </label>
-      <button type="submit">Log In</button>
+      <button className='login-btn' type="submit">Log In</button>
+      <div className='tree__container'>
+        Nomadr.<i className="fas fa-tree"></i>
+      </div>
     </form>
   );
 }
