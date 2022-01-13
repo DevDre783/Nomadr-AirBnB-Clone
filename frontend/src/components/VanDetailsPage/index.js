@@ -10,6 +10,8 @@ function VanDetailsPage() {
     const { vanId } = useParams();
     // console.log(vanId);
     const oneVan = useSelector(state => state.vans[vanId]);
+
+    // console.log("FLAGGGG", oneVan);
     const sessionUser = useSelector(state => state.session.user);
     const dispatch = useDispatch();
     const history = useHistory();
@@ -41,6 +43,7 @@ function VanDetailsPage() {
     return (
         <div className="details__container">
             <h2 className="van-title">{oneVan?.title}</h2>
+            <p className="hosted-by">Hosted by: {oneVan?.User?.username}</p>
             <img className="van__image" key={oneVan?.id} src={oneVan?.Images[0]?.url}></img>
             {sessionUser?.id === oneVan?.userId &&
                 <div className="buttons__container">
@@ -50,11 +53,11 @@ function VanDetailsPage() {
                     <button className="delete-btn" onClick={deleteBtn}>Delete</button>
                 </div>
             }
-            {/* <h3>Hosted by: {oneVan?.User?.username}</h3> */}
-            <p className="location__tag">Location: {oneVan?.city}, {oneVan?.state} {oneVan?.zipCode}</p>
+            <p className="location__tag">{oneVan?.city}, {oneVan?.state} {oneVan?.zipCode}</p>
+            <h3 className="description-label">Description</h3>
             <p className="van-description">{oneVan?.description}</p>
-            <div> Available Amenities:
-                <ul className="amenities__list">
+            <div className="amenities__list"> Available Amenities:
+                <ul>
                     <li>{`Kitchen: ${oneVan?.Amenities[0]?.kitchen}`}</li>
                     <li>{`Shower: ${oneVan?.Amenities[0]?.shower}`}</li>
                     <li>{`Spare Tire: ${oneVan?.Amenities[0]?.spareTire}`}</li>

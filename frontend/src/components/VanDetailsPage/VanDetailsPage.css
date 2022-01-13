@@ -39,7 +39,8 @@
 }
 
 .details__container {
-    margin-top: 5%;
+    margin-top: 3%;
+    margin-bottom: 3%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -47,8 +48,14 @@
 }
 
 .van-title {
+    margin-top: 3.5%;
+    color: #FF5A5F;
     font-size: 32pt;
-    margin-bottom: 3%;
+}
+
+.hosted-by {
+    font-size: 14pt;
+    margin-bottom: 2%;
 }
 
 .van__image {
@@ -72,4 +79,18 @@
     display: inline;
     justify-content: flex-end;
     align-items: flex-end;
+}
+
+.amenities__list {
+    font-size: 14pt;
+    padding: 15px;
+    border: #FF5A5F solid 1.5px;
+}
+
+li {
+    padding-bottom: 10px;
+}
+
+.description-label {
+    text-decoration: underline #FF5A5F;
 }

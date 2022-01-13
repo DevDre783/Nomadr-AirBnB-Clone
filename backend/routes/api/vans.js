@@ -5,9 +5,8 @@ const { check } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation');
 
 const { setTokenCookie, restoreUser } = require('../../utils/auth');
-const { Van, Image, Amenity } = require('../../db/models');
+const { Van, Image, Amenity, User } = require('../../db/models');
 const { db } = require('../../config');
-const { User } = require('pg/lib/defaults');
 const router = express.Router();
 
 
@@ -68,7 +67,7 @@ router.get('/:vanId', asyncHandler(async (req, res) => {
     const specificVanId = parseInt(req.params.vanId, 10);
 
     const specificVan = await Van.findByPk(specificVanId, {
-        include: [Image, Amenity]
+        include: [Image, Amenity, User]
     });
 
     res.json(specificVan);

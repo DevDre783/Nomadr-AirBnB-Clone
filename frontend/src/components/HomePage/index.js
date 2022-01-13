@@ -16,6 +16,7 @@ function Home() {
             </div>
             <div className='site-name'>Nomadr.</div>
             <div className='VanLife__container'>
+                <h1 className="image-msg">The next one is out there!</h1>
                 <img className='VanLife__image' alt="Van-Life" src={'https://cdn.shopify.com/s/files/1/0458/2591/7081/products/campervan3-mockup_1024x.png?v=1630079365'}></img>
                 <div className='explore-handler'>
                 <Link to={`/vans`}>

@@ -10,6 +10,11 @@ body {
 }
 
 .navbar {
+    background-color: white;
+    z-index: 99;
+    position: fixed;
+    top: 0;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -27,25 +32,25 @@ body {
 }
 
 .vanstorent {
-    margin-left: 255px;
+    margin-left: 200px;
 }
 
 .vanstorent {
     display: inline-block;
-  }
+}
 
-  .vanstorent::after {
-    content: '';
-    width: 0px;
-    height: 3px;
-    display: block;
-    background: #FF5A5F;
-    transition: 300ms;
-  }
+.vanstorent::after {
+  content: '';
+  width: 0px;
+  height: 3px;
+  display: block;
+  background: #FF5A5F;
+  transition: 300ms;
+}
 
-  .vanstorent:hover::after {
-    width: 100%;
-  }
+.vanstorent:hover::after {
+  width: 100%;
+}
 
 .fa-github:hover {
     transform: scale(1.7);
