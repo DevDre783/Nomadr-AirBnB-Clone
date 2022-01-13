@@ -1,3 +1,12 @@
 .login-form {
     color: rgb(255, 76, 56);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+    border: black solid 2px;
+    margin-left: 40%;
+    margin-right: 40%;
+    padding-bottom: 30px;
 }

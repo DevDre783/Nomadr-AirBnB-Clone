@@ -36,14 +36,14 @@ function Navigation({ isLoaded }){
             </Link>
         </div>
         <div>
-          <span className='vanstorent'>
-            <Link to='/vans'>Rent a Van</Link>
+          <span>
+            <NavLink className='vanstorent' to='/vans'>Rent a Van</NavLink>
           </span>
-          <span className='github'>
-            <Link to='/'>github-logo</Link>
+          <span >
+            <NavLink className='github' to='/'><i className="fab fa-github"></i></NavLink>
           </span>
-          <span className='linkedIn'>
-            <Link to='/'>linkedIn-logo</Link>
+          <span >
+            <NavLink className='linkedIn' to='/'><i className="fab fa-linkedin-in"></i></NavLink>
           </span>
         </div>
         <nav>

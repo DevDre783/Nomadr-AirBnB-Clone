@@ -24,6 +24,20 @@
     transform: translate(-50%, -50%);
 }
 
+.banner, .VanLife__container, .build__container {
+    margin-bottom: 3%;
+}
+
+.build-title {
+    font-size: 30pt;
+    margin-bottom: 3%;
+}
+
+.fa-share {
+    transform: rotate(60deg);
+    margin-left: 20px;
+}
+
 .site-name {
     text-shadow: black 1px 1px 1px;
     color: #ff444a;

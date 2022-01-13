@@ -19,7 +19,7 @@ function Home() {
                 <img className='VanLife__image' alt="Van-Life" src={'https://cdn.shopify.com/s/files/1/0458/2591/7081/products/campervan3-mockup_1024x.png?v=1630079365'}></img>
             </div>
             <div className='build__container'>
-                <h2>Full Van Build<i class="fas fa-share"></i></h2>
+                <h2 className='build-title'>Full Van Build<i class="fas fa-share"></i></h2>
                 <iframe className='build__video' width="1422" height="800" src="https://www.youtube.com/embed/ye-VQ3Za1mY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
         <footer>
