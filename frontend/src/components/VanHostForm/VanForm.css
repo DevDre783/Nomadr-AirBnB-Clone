@@ -43,6 +43,7 @@
 }
 
 .hostForm__errors {
+    background-color: rgba(75, 74, 74, 0.151);
     color: rgb(223, 54, 54);
     font-weight: bold;
     position: absolute;

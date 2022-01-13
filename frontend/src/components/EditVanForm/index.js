@@ -172,11 +172,11 @@ function EditVanForm() {
 
     return (
         <div className="form__container">
-            {/* <ul className="hostForm__errors">
+            <ul className="hostForm__errors">
                 {errors.map(error => (
                     <li key={error}>{error}</li>
                     ))}
-            </ul> */}
+            </ul>
             <form className="the__form" onSubmit={handleSubmit}>
                 <div className="main__info">
                 <h1>Edit Listing</h1>
@@ -305,7 +305,7 @@ function EditVanForm() {
                 />
                 <button
                     className="form-submit"
-                    disabled={errors.length > 0}
+                    // disabled={errors.length > 0}
                     type="submit">Submit
                 </button>
                 <Link to={`/`}>

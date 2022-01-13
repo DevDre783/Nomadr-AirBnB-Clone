@@ -43,14 +43,11 @@
     flex-direction: column;
 }
 
-/* .hostForm__errors {
-    display: block;
-    justify-content: center;
+.hostForm__errors {
+    background-color: rgba(75, 74, 74, 0.151);
+    /* display: block; */
+    right: 80%;
     align-items: center;
     color: rgb(223, 54, 54);
     font-weight: bold;
-} */
-
-/* .move__errors {
-    margin-top: 10%;
-} */
+}
