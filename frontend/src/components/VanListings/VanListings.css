@@ -6,6 +6,34 @@ html {
     scroll-behavior: smooth;
 }
 
+.container{
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.listings__header {
+    font-size: 32pt;
+    margin-left: 10%;
+    margin-top: 5%;
+    color: #FF5A5F;
+}
+
+.left__container {
+    padding: 0;
+    margin: 0;
+    height: 100vh;
+    grid-column-start: 1;
+    grid-column-end: 2;
+}
+
+.right__container {
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    grid-column-start: 2;
+    grid-column-end: 3;
+}
+
 .listing__info {
     display: flex;
     align-items: center;
@@ -42,4 +70,8 @@ html {
     /* justify-content: space-between; */
     padding-left: 20px;
     justify-content: center;
+}
+
+.googleMap__image {
+    width: 100%;
 }

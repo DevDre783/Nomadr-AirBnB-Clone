@@ -27,24 +27,6 @@ function Home() {
                 <h2 className='build-title'>Full Van Build<i class="fas fa-share"></i></h2>
                 <iframe className='build__video' width="1422" height="800" src="https://www.youtube.com/embed/ye-VQ3Za1mY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
-        <footer>
-            // FOOTER: list languages used
-            <div className='project__langs'>
-                <ul>
-                    <li>HTML5</li>
-                    <li>CSS</li>
-                    <li>JavaScript</li>
-                    <li>SQL</li>
-                    <li>PostGres</li>
-                    <li>React.js</li>
-                    <li>Redux</li>
-                    <li>Express</li>
-                </ul>
-            </div>
-            <div className='footImage__container'>
-                {/* <img className='foot__image' alt="Van-Life" src={'../../../public/images/FORESTpng-portable-network-graphics-clip-art-vector-graphics-images-of-forest-trees-vector-rock-cafe-5ce61699e9a938.7338035915585829379571.png'}></img> */}
-            </div>
-        </footer>
         </div>
     );
 }

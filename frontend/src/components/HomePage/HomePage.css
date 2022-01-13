@@ -24,8 +24,12 @@
     transform: translate(-50%, -50%);
 }
 
-.banner, .VanLife__container, .build__container {
+.banner, .build__container {
     margin-bottom: 5%;
+}
+
+.VanLife__container {
+    margin-bottom: 3%;
 }
 
 .build-title {

@@ -18,7 +18,7 @@ const Demo = () => {
     }
 
     return (
-        <button onClick={handleClick} type='submit'>Demo User</button>
+        <button className='demo-user' onClick={handleClick} type='submit'>Demo User</button>
     )
 }
 

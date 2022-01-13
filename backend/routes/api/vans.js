@@ -7,6 +7,7 @@ const { handleValidationErrors } = require('../../utils/validation');
 const { setTokenCookie, restoreUser } = require('../../utils/auth');
 const { Van, Image, Amenity } = require('../../db/models');
 const { db } = require('../../config');
+const { User } = require('pg/lib/defaults');
 const router = express.Router();
 
 

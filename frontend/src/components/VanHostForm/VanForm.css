@@ -43,12 +43,13 @@
 }
 
 .hostForm__errors {
+    display: inline-block;
     /* list-style: none; */
     background-color: rgba(75, 74, 74, 0.151);
     color: rgb(223, 54, 54);
     font-weight: bold;
     position: absolute;
-    padding: 25px;
+    /* padding: 15px; */
 }
 
 textarea {

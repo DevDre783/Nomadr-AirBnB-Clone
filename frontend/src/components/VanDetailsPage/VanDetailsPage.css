@@ -1,0 +1,75 @@
+.edit-btn {
+    background-color: white; /* Green */
+    border: 2px solid red;
+    color: black;
+    padding: 4px 8px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    margin: 6px 4px;
+    transition-duration: 0.4s;
+    margin-bottom: 20px;
+    cursor: pointer;
+  }
+
+.edit-btn:hover {
+  background-color: red;
+  color: white;
+}
+
+.delete-btn {
+    background-color: white; /* Green */
+    border: 2px solid red;
+    color: black;
+    padding: 4px 8px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    margin: 6px 4px;
+    transition-duration: 0.4s;
+    margin-bottom: 20px;
+    cursor: pointer;
+  }
+
+.delete-btn:hover {
+  background-color: red;
+  color: white;
+}
+
+.details__container {
+    margin-top: 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.van-title {
+    font-size: 32pt;
+    margin-bottom: 3%;
+}
+
+.van__image {
+    border-radius: 30px;
+    height: 600px;
+    width: 1000px;
+}
+
+.location__tag {
+    font-weight: bold;
+    font-size: 16pt;
+    margin-bottom: 2%;
+}
+
+.van-description {
+    font-size: 14pt;
+    margin-bottom: 2%;
+}
+
+.buttons__container {
+    display: inline;
+    justify-content: flex-end;
+    align-items: flex-end;
+}

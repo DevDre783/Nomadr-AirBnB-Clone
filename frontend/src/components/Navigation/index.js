@@ -40,10 +40,10 @@ function Navigation({ isLoaded }){
             <NavLink className='vanstorent' to='/vans'>Rent a Van</NavLink>
           </span>
           <span >
-            <NavLink className='github' to='/'><i className="fab fa-github"></i></NavLink>
+            <a className='github' href='https://github.com/DevDre783/Nomadr-AirBnB-Clone'><i className="fab fa-github"></i></a>
           </span>
           <span >
-            <NavLink className='linkedIn' to='/'><i className="fab fa-linkedin-in"></i></NavLink>
+            <a className='linkedIn' href='https://www.linkedin.com/in/andres-soca-23852aab/'><i className="fab fa-linkedin-in"></i></a>
           </span>
         </div>
         <nav>

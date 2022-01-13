@@ -27,9 +27,25 @@ body {
 }
 
 .vanstorent {
-    margin-left: 185px;
-    /* padding-left: 20px; */
+    margin-left: 255px;
 }
+
+.vanstorent {
+    display: inline-block;
+  }
+
+  .vanstorent::after {
+    content: '';
+    width: 0px;
+    height: 3px;
+    display: block;
+    background: #FF5A5F;
+    transition: 300ms;
+  }
+
+  .vanstorent:hover::after {
+    width: 100%;
+  }
 
 .fa-github:hover {
     transform: scale(1.7);
@@ -58,7 +74,21 @@ body {
     font-size: 14pt;
     text-decoration: none;
     margin-right: 20px;
+    display: inline-block;
 }
+
+.become__host::after {
+    content: '';
+    width: 0px;
+    height: 3px;
+    display: block;
+    background: #FF5A5F;
+    transition: 300ms;
+  }
+
+  .become__host:hover::after {
+    width: 100%;
+  }
 
 .fa-github {
     transform: scale(1.6);
@@ -66,6 +96,10 @@ body {
 
 .fa-linkedin-in {
     transform: scale(1.6);
+}
+
+.right-nav {
+    padding-top: 2%;
 }
 
 .profile-menu {
@@ -153,11 +187,25 @@ body {
     background: none;
     border: none;
     color: #FF5A5F;
+    background-color: white; /* Green */
+    border: 2px solid #FF5A5F;
+    padding: 4px 8px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    margin: 6px 4px;
+    transition-duration: 0.4s;
+    margin-bottom: 5px;
+    margin-left: 28%;
+    cursor: pointer;
 }
 
 .logout-btn:hover {
     cursor: pointer;
     transform: scale(1.1);
+    background-color: #FF5A5F;
+    color: white;
 }
 
 .login {
@@ -166,6 +214,20 @@ body {
     text-decoration: none;
     margin-right: 15px;
     margin-left: 10px;
+    display: inline-block;
+}
+
+.login::after {
+  content: '';
+  width: 0px;
+  height: 3px;
+  display: block;
+  background: #FF5A5F;
+  transition: 300ms;
+}
+
+.login:hover::after {
+  width: 100%;
 }
 
 .signup {
@@ -174,4 +236,38 @@ body {
     color: #FF5A5F;
     text-decoration: none;
     margin-right: 30px;
+    display: inline-block;
+}
+
+.signup::after {
+    content: '';
+    width: 0px;
+    height: 3px;
+    display: block;
+    background: #FF5A5F;
+    transition: 300ms;
+  }
+
+  .signup:hover::after {
+    width: 100%;
+  }
+
+.demo-user {
+    background-color: white; /* Green */
+    border: 2px solid #FF5A5F;
+    color: #FF5A5F;
+    padding: 8px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 6px 4px;
+    transition-duration: 0.4s;
+    margin-bottom: 20px;
+    cursor: pointer;
+  }
+
+.demo-user:hover {
+  background-color: #FF5A5F;
+  color: white;
 }

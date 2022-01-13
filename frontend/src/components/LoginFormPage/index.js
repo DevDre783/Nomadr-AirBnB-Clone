@@ -29,6 +29,7 @@ function LoginFormPage() {
 
   return (
     <form className="login-form" onSubmit={handleSubmit}>
+      <h1 className="login-msg">Nomadr.</h1>
       <ul>
         {errors.map((error, idx) => <li key={idx}>{error}</li>)}
       </ul>
