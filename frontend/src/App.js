@@ -10,6 +10,7 @@ import VanListings from "./components/VanListings";
 import VanDetailsPage from "./components/VanDetailsPage";
 import VanHostForm from "./components/VanHostForm";
 import EditVanForm from "./components/EditVanForm";
+import Footer from './components/Footer';
 import Home from "./components/HomePage";
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
         <Switch>
           <Route exact path='/'>
             <Home />
+            <Footer />
           </Route>
           <Route exact path="/login">
             <LoginFormPage />

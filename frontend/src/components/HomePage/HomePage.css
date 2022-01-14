@@ -47,7 +47,7 @@
 .site-name {
     text-shadow: black 1px 1px 1px;
     color: #ff444a;
-    font-family: cursive;
+    font-family: 'Finger Paint', cursive;
     font-size: 42pt;
     font-weight: bolder;
     position: absolute;
@@ -72,6 +72,10 @@
 
 .build__video {
     border-radius: 30px;
+}
+
+.build-title {
+    font-family: 'Finger Paint', cursive;
 }
 
 .fa-share {

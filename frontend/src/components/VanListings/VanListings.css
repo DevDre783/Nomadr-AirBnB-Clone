@@ -13,6 +13,7 @@ html {
 }
 
 .listings__header {
+    font-family: 'Finger Paint', cursive;
     font-size: 32pt;
     margin-left: 10%;
     margin-top: 5%;
@@ -54,6 +55,10 @@ html {
 
 #vanImgLink {
     border-bottom: none;
+}
+
+#vanId {
+    transform: scale(1.2);
 }
 
 #vanId:hover {

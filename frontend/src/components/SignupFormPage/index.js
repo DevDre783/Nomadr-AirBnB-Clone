@@ -35,42 +35,38 @@ function SignupFormPage() {
             <ul>
                 {errors.map((error, idx) => <li key={idx}>{error}</li>)}
             </ul>
-            <label>
-                Email
+                Email:
                 <input
+                placeholder="Email"
                     type="text"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     required
                 />
-            </label>
-            <label>
-                Username
+                Username:
                 <input
+                    placeholder="Username"
                     type="text"
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
                     required
                 />
-            </label>
-            <label>
-                Password
+                Password:
                 <input
+                    placeholder="Password"
                     type="password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     required
                 />
-            </label>
-            <label>
-                Confirm Password
+                Confirm Password:
                 <input
+                    placeholder=" Confirm password"
                     type="password"
                     value={confirmPassword}
                     onChange={(e) => setConfirmPassword(e.target.value)}
                     required
                 />
-            </label>
             <button className="signup-btn" type="submit">Sign Up</button>
             <div className='tree__container'>
                 Nomadr. <i className="fas fa-tree"></i>

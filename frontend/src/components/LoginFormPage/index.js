@@ -29,26 +29,23 @@ function LoginFormPage() {
 
   return (
     <form className="login-form" onSubmit={handleSubmit}>
-      <h1 className="login-msg">Nomadr.</h1>
       <ul>
         {errors.map((error, idx) => <li key={idx}>{error}</li>)}
       </ul>
-      <label>Username or Email:
-        <input
+      Username or Email:<input
+        placeholder='username or email'
           type="text"
           value={credential}
           onChange={(e) => setCredential(e.target.value)}
           required
         />
-      </label>
-      <label>Password:
-        <input
+        Password:<input
+        placeholder='password'
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
         />
-      </label>
       <button className='login-btn' type="submit">Log In</button>
       <div className='tree__container'>
         Nomadr.<i className="fas fa-tree"></i>
