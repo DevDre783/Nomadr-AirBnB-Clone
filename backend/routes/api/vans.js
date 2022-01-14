@@ -22,7 +22,7 @@ const vanHostForm = [
     check('Van.state')
         .exists({ checkFalsy: true })
         .isLength({ max: 50 })
-        .withMessage("City must be less 255 characters"),
+        .withMessage("State must be less 255 characters"),
     check('Van.country')
         .exists({ checkFalsy: true })
         .isLength({ max: 50 })
@@ -36,7 +36,7 @@ const vanHostForm = [
         .withMessage("Please provide a description"),
     check('Van.costPerNight')
         .exists({ checkFalsy: true })
-        .withMessage("Please provide a price per night"),
+        .withMessage("Please provide a cost per night"),
     check('Van.zipCode')
         .exists({ checkFalsy: true })
         .withMessage("Please provide a valid zip code"),
