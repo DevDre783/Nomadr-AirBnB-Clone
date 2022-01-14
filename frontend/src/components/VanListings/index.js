@@ -18,20 +18,23 @@ function VanListings() {
             <div className="left__container">
                 <h1 className="listings__header">Vans Nearby</h1>
                 {allVans?.map(van => (
-                    <div className='listing__info'>
-                        <div className='vanImage'>
-                            <Link key={`${van.id}1`} id='vanImgLink' className="vanImage" to={`/vans/${van.id}`}>
-                                <img id="vanId" key={`${van.id}2`} src={van?.Images[0]?.url}></img>
-                            </Link>
-                            <div className='van__info'>
-                                <h2 key={`${van.id}3`}>{van.title}</h2>
-                                <p className="passengers-txt" key={`${van.id}4`}>Vehicle Capacity: {van.totalPassengers} passengers</p>
-                                <h3>Location:</h3>
-                                <h3 key={`${van.id}5`} className='location-text'>{`${van.city}, ${van.state}`}</h3>
-                                <h2 key={`${van.id}6`} className='price-text'>{`$${van.costPerNight} / night`}</h2>
+                    <>
+                        <div className='listing__info'>
+                            <div className='vanImage'>
+                                <Link key={`${van.id}1`} id='vanImgLink' className="vanImage" to={`/vans/${van.id}`}>
+                                    <img id="vanId" key={`${van.id}2`} src={van?.Images[0]?.url}></img>
+                                </Link>
+                                <div className='van__info'>
+                                    <h2 key={`${van.id}3`}>{van.title}</h2>
+                                    <p className="passengers-txt" key={`${van.id}4`}>Vehicle Capacity: {van.totalPassengers} passengers</p>
+                                    <h3>Location:</h3>
+                                    <h3 key={`${van.id}5`} className='location-text'>{`${van.city}, ${van.state}`}</h3>
+                                    <h2 key={`${van.id}6`} className='price-text'>{`$${van.costPerNight} / night`}</h2>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                        <div className="line__div"></div>
+                    </>
                 ))}
             </div>
 

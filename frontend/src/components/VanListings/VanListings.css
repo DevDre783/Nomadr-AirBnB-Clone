@@ -50,6 +50,10 @@ html {
     position: relative;
     margin: 20px;
     padding: 50px;
+}
+
+.line__div {
+    width: 100%;
     border-bottom: 1px solid lightgray;
 }
 
