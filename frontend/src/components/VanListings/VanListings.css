@@ -84,3 +84,9 @@ html {
 .googleMap__image {
     width: 100%;
 }
+
+.passengers-txt {
+    font-weight: bold;
+    color: #fc373d;
+    font-size: 14pt;
+}
