@@ -21,7 +21,7 @@ const vanHostForm = [
         .withMessage("City must be less 255 characters"),
     check('Van.state')
         .exists({ checkFalsy: true })
-        .isLength({ max: 50 })
+        .is gth({ max: 50 })
         .withMessage("State must be less 255 characters"),
     check('Van.country')
         .exists({ checkFalsy: true })
@@ -92,6 +92,7 @@ router.post('/host', vanHostForm, requireAuth, asyncHandler(async (req, res) => 
         hotSpot: amenities.hotSpot,
         chargingStation: amenities.chargingStation
     };
+
     await Amenity.create(newAmenityList);
 
     console.log(id);
