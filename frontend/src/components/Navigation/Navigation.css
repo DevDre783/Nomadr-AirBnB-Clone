@@ -9,6 +9,10 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
+.group1 {
+    margin-left: 30%;
+}
+
 .navbar {
     background-color: white;
     z-index: 99;
@@ -16,11 +20,15 @@ body {
     top: 0;
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     align-items: center;
     height: 80px;
     padding: 0 24px;
     box-shadow: rgba(0, 0, 0, 0.08) 0px 1px 12px;
+}
+
+.container__ {
+    margin-left: 30%;
 }
 
 .vanstorent, .github, .linkedIn {
@@ -100,7 +108,8 @@ body {
 }
 
 .right-nav {
-    padding-top: 2%;
+    margin-left: 40%;
+    /* padding-top: 2%; */
 }
 
 .profile-menu {
@@ -131,7 +140,7 @@ body {
 }
 
 .logo {
-    margin-left: 15px;
+    margin-left: 45px;
     transform: scale(1.6);
 }
 

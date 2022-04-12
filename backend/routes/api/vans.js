@@ -21,7 +21,7 @@ const vanHostForm = [
         .withMessage("City must be less 255 characters"),
     check('Van.state')
         .exists({ checkFalsy: true })
-        .is gth({ max: 50 })
+        .isLength({ max: 50 })
         .withMessage("State must be less 255 characters"),
     check('Van.country')
         .exists({ checkFalsy: true })

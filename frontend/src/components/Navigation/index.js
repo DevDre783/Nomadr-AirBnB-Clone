@@ -36,23 +36,21 @@ function Navigation({ isLoaded }){
                 <i className="fas fa-caravan">--<i className="fas fa-shuttle-van"></i></i>
             </Link>
         </div>
-        <div>
+        <div className='group1'>
           <span>
             <NavLink className='vanstorent' to='/vans'>Rent a Van</NavLink>
           </span>
           <span >
-            <a className='github' href='https://github.com/DevDre783/Nomadr-AirBnB-Clone'><i className="fab fa-github"></i></a>
+            <a target="_blank" className='github' href='https://github.com/DevDre783/Nomadr-AirBnB-Clone'><i className="fab fa-github"></i></a>
           </span>
           <span >
-            <a className='linkedIn' href='https://www.linkedin.com/in/andres-soca-23852aab/'><i className="fab fa-linkedin-in"></i></a>
+            <a target="_blank" className='linkedIn' href='https://www.linkedin.com/in/andres-soca-23852aab/'><i className="fab fa-linkedin-in"></i></a>
           </span>
         </div>
-        <SearchBar/>
-        <nav>
-          <div className='right-nav'>
-            <div className='profile-icon'>{isLoaded && sessionLinks}</div>
-          </div>
-        </nav>
+          <SearchBar/>
+        <div className='right-nav'>
+          <div className='profile-icon'>{isLoaded && sessionLinks}</div>
+        </div>
     </nav>
   );
 }

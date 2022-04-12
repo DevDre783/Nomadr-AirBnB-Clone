@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
+import { getAllVans } from '../../store/vans';
 import "./SearchBar.css"
 
 
 function SearchBar() {
+    const dispatch = useDispatch();
     const allVans = useSelector(state => state.vans.listOfVans);
     console.log(allVans)
     const [searchTerm, setSearchTerm] = useState("");
@@ -16,7 +18,8 @@ function SearchBar() {
 
     useEffect(() => {
         setSearchTerm("")
-    }, [])
+        dispatch(getAllVans(allTitles))
+    }, [dispatch])
 
     useEffect(() => {
 
@@ -40,7 +43,7 @@ function SearchBar() {
     return (
         <div className='search_container'>
         <div className="search__bar">
-            <input type="text" value={searchTerm} placeholder="&#x1F50E;&#xFE0E; Search Artsy..." onChange={(e)=>setSearchTerm(e.target.value)}></input>
+            <input type="text" value={searchTerm} placeholder="&#x1F50E;&#xFE0E; Search Nomadr..." onChange={(e)=>setSearchTerm(e.target.value)}></input>
         </div>
         <div id="search_results">
             {searchTerm && (
