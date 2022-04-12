@@ -6,6 +6,7 @@ import ProfileButton from './ProfileButton';
 import './Navigation.css';
 import VansHostForm from '../VanHostForm';
 import Demo from './demo-user';
+import SearchBar from '../SearchBar';
 
 function Navigation({ isLoaded }){
   const sessionUser = useSelector(state => state.session.user);
@@ -46,6 +47,7 @@ function Navigation({ isLoaded }){
             <a className='linkedIn' href='https://www.linkedin.com/in/andres-soca-23852aab/'><i className="fab fa-linkedin-in"></i></a>
           </span>
         </div>
+        <SearchBar/>
         <nav>
           <div className='right-nav'>
             <div className='profile-icon'>{isLoaded && sessionLinks}</div>
