@@ -100,7 +100,7 @@ function VanHostForm() {
 
     return (
         <>
-        <div>
+        <div className="errors__container">
             <ul className="hostForm__errors">
                 {errors.map(error => (
                     <li key={error}>{error}</li>

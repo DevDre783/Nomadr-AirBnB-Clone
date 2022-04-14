@@ -9,7 +9,7 @@
     border: 1.5px solid black;
     background-color: white;
     width: 375px;
-    margin-top: 5%;
+    margin-top: 1%;
     display: flex;
     position: absolute;
     flex-direction: column;
@@ -17,10 +17,8 @@
     justify-content: left;
 }
 
-.image__container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.form__image {
+    margin-top: -12%;
 }
 
 .main__info > input {
@@ -43,13 +41,20 @@
 }
 
 .hostForm__errors {
-    display: inline-block;
+    /* display: inline-block; */
     /* list-style: none; */
     background-color: rgba(75, 74, 74, 0.151);
     color: rgb(223, 54, 54);
     font-weight: bold;
-    position: absolute;
+    /* position: absolute; */
     /* padding: 15px; */
+}
+
+.errors__container {
+    position: absolute;
+    z-index: -1;
+    margin-left: 65%;
+    width: 20%;
 }
 
 textarea {

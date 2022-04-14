@@ -6,9 +6,19 @@
     z-index: 10000;
     background-color: #ff5a60;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     padding-top:0.2%;
     border-top: gray 1px solid;
+}
+
+.github {
+    margin-left: 5%;
+    margin-top: 13px;
+}
+
+.linkedIn {
+    margin-left: 2%;
+    margin-top: 13px;
 }
 
 #developed-by {
