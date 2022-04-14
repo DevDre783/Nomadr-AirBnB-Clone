@@ -20,7 +20,7 @@ body {
     top: 0;
     width: 100%;
     display: flex;
-    /* justify-content: space-between; */
+    justify-content: space-between;
     align-items: center;
     height: 80px;
     padding: 0 24px;
@@ -115,7 +115,7 @@ body {
 .profile-menu {
     margin-right: 12px;
     appearance: none;
-    background: transparent;
+    background: white;
     border: 1px solid #DDDDDD;
     color: #222222;
     cursor: pointer;
@@ -140,7 +140,7 @@ body {
 }
 
 .logo {
-    margin-left: 45px;
+    margin-left: 75px;
     transform: scale(1.6);
 }
 
@@ -189,6 +189,10 @@ body {
 .Dd-email {
     list-style: none;
     padding-bottom: 45px;
+}
+
+.profile-icon {
+    margin-right: 75px;
 }
 
 .logout-btn {
@@ -275,6 +279,7 @@ body {
     transition-duration: 0.4s;
     margin-bottom: 20px;
     cursor: pointer;
+    margin-right: 75px;
   }
 
 .demo-user:hover {

@@ -37,17 +37,13 @@ function Navigation({ isLoaded }){
             </Link>
         </div>
         <div className='group1'>
-          <span>
-            <NavLink className='vanstorent' to='/vans'>Rent a Van</NavLink>
-          </span>
-          <span >
-            <a target="_blank" className='github' href='https://github.com/DevDre783/Nomadr-AirBnB-Clone'><i className="fab fa-github"></i></a>
-          </span>
-          <span >
-            <a target="_blank" className='linkedIn' href='https://www.linkedin.com/in/andres-soca-23852aab/'><i className="fab fa-linkedin-in"></i></a>
-          </span>
+          {sessionUser &&
+            <span>
+              <NavLink className='vanstorent' to='/vans'>Rent a Van</NavLink>
+            </span>
+          }
         </div>
-          <SearchBar/>
+          {sessionUser && <SearchBar/>}
         <div className='right-nav'>
           <div className='profile-icon'>{isLoaded && sessionLinks}</div>
         </div>
