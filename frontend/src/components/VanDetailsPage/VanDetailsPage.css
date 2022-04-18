@@ -13,6 +13,11 @@
     cursor: pointer;
   }
 
+  .top__container {
+      display: flex;
+      flex-direction: row;
+  }
+
 .edit-btn:hover {
   background-color: red;
   color: white;
@@ -83,9 +88,12 @@
 }
 
 .amenities__list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     font-size: 14pt;
     padding: 15px;
-    border: #FF5A5F solid 1.5px;
+    border: #FF5A5F solid 2px;
 }
 
 li {
@@ -94,4 +102,58 @@ li {
 
 .description-label {
     text-decoration: underline #FF5A5F;
+}
+
+.lowermost__container {
+    border: 2px solid black;
+    padding-left: 125px;
+    padding-right: 125px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 5%;
+}
+
+.reviews__container {
+    /* display: flex; */
+    /* justify-content: center; */
+    width: 50%;
+    border: 2px solid blue;
+}
+
+.booking__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    border: 2px solid green;
+}
+
+.calender__container {
+    width: 50%;
+    border: 2px red solid;
+}
+
+.the__calendar {
+    margin-left: 5.5%;
+}
+
+.the__form1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+    border: 2px solid purple;
+}
+
+.calendar__header {
+    display: flex;
+    justify-content: center;
+}
+
+.reviews__header {
+    display: flex;
+    justify-content: center;
 }

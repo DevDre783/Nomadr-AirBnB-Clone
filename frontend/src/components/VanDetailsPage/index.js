@@ -4,6 +4,9 @@ import { Link, useHistory, useParams } from 'react-router-dom';
 import { getOneVan } from "../../store/vans";
 import { deleteVan } from "../../store/vans";
 import './VanDetailsPage.css';
+import Calendar from 'react-calendar'
+import { FaCheck } from "react-icons/fa";
+import 'react-calendar/dist/Calendar.css';
 
 
 function VanDetailsPage() {
@@ -41,32 +44,57 @@ function VanDetailsPage() {
     }
 
     return (
-        <div className="details__container">
-            <h2 className="van-title">{oneVan?.title}</h2>
-            <p className="hosted-by">Hosted by: {oneVan?.User?.username}</p>
-            <img className="van__image" key={oneVan?.id} src={oneVan?.Images[0]?.url}></img>
-            {sessionUser?.id === oneVan?.userId &&
-                <div className="buttons__container">
-                    <Link to={`/vans/${oneVan?.id}/host`}>
-                        <button className="edit-btn">Edit</button>
-                    </Link>
-                    <button className="delete-btn" onClick={deleteBtn}>Delete</button>
+        <div>
+            <div className="details__container">
+                <h2 className="van-title">{oneVan?.title}</h2>
+                <p className="hosted-by">Hosted by: {oneVan?.User?.username}</p>
+                <div className="top__container">
+                    <img className="van__image" key={oneVan?.id} src={oneVan?.Images[0]?.url}></img>
+                    <div className="amenities__list">
+                        <h3>Available Amenities:</h3>
+                        <ul style={{listStyle: "none"}}>
+                            <li>Kitchen: {oneVan?.Amenities[0]?.kitchen ? <FaCheck style={{color: "green"}}/> : <span style={{color: "red"}}>False</span>}</li>
+                            <li>Shower: {oneVan?.Amenities[0]?.shower ? <FaCheck style={{color: "green"}}/> : <span style={{color: "red"}}>False</span>}</li>
+                            <li>Spare: {oneVan?.Amenities[0]?.spareTire ? <FaCheck style={{color: "green"}}/> : <span style={{color: "red"}}>False</span>}</li>
+                            <li>FirstAid: {oneVan?.Amenities[0]?.firstAidKit ? <FaCheck style={{color: "green"}}/> : <span style={{color: "red"}}>False</span>}</li>
+                            <li>Roadside: {oneVan?.Amenities[0]?.roadsideAssistance ? <FaCheck style={{color: "green"}}/> : <span style={{color: "red"}}>False</span>}</li>
+                            <li>RoofRack: {oneVan?.Amenities[0]?.roofRackStorage ? <FaCheck style={{color: "green"}}/> : <span style={{color: "red"}}>False</span>}</li>
+                            <li>HotSpot: {oneVan?.Amenities[0]?.hotSpot ? <FaCheck style={{color: "green"}}/> : <span style={{color: "red"}}>False</span>}</li>
+                            <li>Charging: {oneVan?.Amenities[0]?.chargingStation ? <FaCheck style={{color: "green"}}/> : <span style={{color: "red"}}>False</span>}</li>
+                        </ul>
+                    </div>
                 </div>
-            }
-            <p className="location__tag">{oneVan?.city}, {oneVan?.state} {oneVan?.zipCode}</p>
-            <h3 className="description-label">Description</h3>
-            <p className="van-description">{oneVan?.description}</p>
-            <div className="amenities__list"> Available Amenities:
-                <ul>
-                    <li>{`Kitchen: ${oneVan?.Amenities[0]?.kitchen}`}</li>
-                    <li>{`Shower: ${oneVan?.Amenities[0]?.shower}`}</li>
-                    <li>{`Spare Tire: ${oneVan?.Amenities[0]?.spareTire}`}</li>
-                    <li>{`FirstAid Kit: ${oneVan?.Amenities[0]?.firstAidKit}`}</li>
-                    <li>{`Roadside Assistance: ${oneVan?.Amenities[0]?.roadsideAssistance}`}</li>
-                    <li>{`RoofRack Storage: ${oneVan?.Amenities[0]?.roofRackStorage}`}</li>
-                    <li>{`Hotspot: ${oneVan?.Amenities[0]?.hotSpot}`}</li>
-                    <li>{`Charging Station: ${oneVan?.Amenities[0]?.chargingStation}`}</li>
-                </ul>
+                {sessionUser?.id === oneVan?.userId &&
+                    <div className="buttons__container">
+                        <Link to={`/vans/${oneVan?.id}/host`}>
+                            <button className="edit-btn">Edit</button>
+                        </Link>
+                        <button className="delete-btn" onClick={deleteBtn}>Delete</button>
+                    </div>
+                }
+                <p className="location__tag">{oneVan?.city}, {oneVan?.state} {oneVan?.zipCode}</p>
+                <h3 className="description-label">Description</h3>
+                <p className="van-description">{oneVan?.description}</p>
+            </div>
+            <div className="lowermost__container">
+                <div className="reviews__container">
+                    <h1 className="reviews__header">Reviews</h1>
+                    <div>
+                        map out the reviews from the database here.... + usernames
+                    </div>
+                </div>
+                <div className="booking__container">
+                    <div class="calender__container">
+                        <h3 className="calendar__header">Book with us!</h3>
+                        <Calendar className="the__calendar"/>
+                    </div>
+                    <div className="the__form1">
+                        <form>
+                            <label># of Passengers<input type="number"></input></label>
+                        </form>
+                        <button type="submit">Book now</button>
+                    </div>
+                </div>
             </div>
         </div>
     )

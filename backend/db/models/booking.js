@@ -4,7 +4,8 @@ module.exports = (sequelize, DataTypes) => {
     vanId: DataTypes.INTEGER,
     userId: DataTypes.INTEGER,
     startDate: DataTypes.DATE,
-    endDate: DataTypes.DATE
+    endDate: DataTypes.DATE,
+    passengers: DataTypes.STRING
   }, {});
 
   Booking.associate = function(models) {

@@ -102,11 +102,11 @@ function VanHostForm() {
     return (
         <>
         <div className="errors__container">
-            <ul className="hostForm__errors">
+            <ol className="hostForm__errors">
                 {errors.map(error => (
                     <li key={error}>{error}</li>
                 ))}
-            </ul>
+            </ol>
         </div>
         <div className="form__container">
             <form className="the__form" onSubmit={handleSubmit}>
