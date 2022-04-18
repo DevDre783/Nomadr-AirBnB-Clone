@@ -20,6 +20,7 @@ function VanHostForm() {
     const [totalPassengers, setTotalPassengers] = useState('');
     // Images
     const [url, setUrl] = useState('');
+
     // Amenities
     const [kitchen, setKitchen] = useState(false);
     const [shower, setShower] = useState(false);
@@ -104,20 +105,20 @@ function VanHostForm() {
             <ul className="hostForm__errors">
                 {errors.map(error => (
                     <li key={error}>{error}</li>
-                    ))}
+                ))}
             </ul>
         </div>
         <div className="form__container">
             <form className="the__form" onSubmit={handleSubmit}>
                 <div className="main__info">
                     <h1>Host Your Van!</h1>
-                    Title<input
+                    <input
                         type='text'
                         placeholder="Van Name"
                         value={title}
                         onChange={(e) => setTitle(e.target.value)}
                     />
-                    Country<input
+                    <input
                         type='text'
                         placeholder="Country"
                         value={country}
@@ -135,37 +136,37 @@ function VanHostForm() {
                             </option>
                         ))}
                     </select>
-                    City<input
+                    <input
                         type='text'
                         placeholder="City"
                         value={city}
                         onChange={e => setCity(e.target.value)}
                     />
-                    Address<input
+                    <input
                         type='text'
                         placeholder="Address"
                         value={address}
                         onChange={e => setAddress(e.target.value)}
                     />
-                    Zip Code<input
+                    <input
                         type='text'
                         placeholder="Zip Code"
                         value={zipCode}
                         onChange={e => setZipCode(e.target.value)}
                     />
-                    Cost/Night<input
+                    <input
                         type='number'
                         placeholder="Cost Per Night"
                         value={costPerNight}
                         onChange={e => setCostPerNight(e.target.value)}
                     />
-                    Total Passengers<input
+                    <input
                         type='number'
-                        placeholder="Passengers"
+                        placeholder="Total Passengers"
                         value={totalPassengers}
                         onChange={e => setTotalPassengers(e.target.value)}
                     />
-                    Image<input
+                    <input
                         type='string'
                         placeholder="image url"
                         value={url}
@@ -173,59 +174,71 @@ function VanHostForm() {
                     />
                 </div>
 
-                Amenities:
+                <h3 className="amenities__header">Amenities:</h3>
                 <div className="amenities__container">
+                    <div className="row1">
                     Kitchen<input
-                        id="kitchen"
+                        className="amenity1"
+                        id='kitchen'
                         type='checkbox'
                         checked={kitchen}
                         onChange={(e) => setKitchen(!kitchen)}
                     />
                     Shower<input
+                        className="amenity2"
                         id="shower"
                         type='checkbox'
                         checked={shower}
                         onChange={(e) => setShower(!shower)}
                     />
-                    Spare Tire<input
+                    Spare<input
+                        className="amenity3"
                         id="spareTire"
                         type='checkbox'
                         checked={spareTire}
                         onChange={(e) => setSpareTire(!spareTire)}
                     />
-                    FirstAid Kit<input
+                    FirstAid<input
+                        className="amenity4"
                         id="firstAidKit"
                         type='checkbox'
                         checked={firstAidKit}
                         onChange={(e) => setFirstAidKit(!firstAidKit)}
                     />
-                    Roadside Assistance<input
+                    </div>
+                    <div className="row2">
+                    Roadside<input
+                        className="amenity5"
                         id="roadsideAssistance"
                         type='checkbox'
                         checked={roadsideAssistance}
                         onChange={(e) => setRoadsideAssistance(!roadsideAssistance)}
                     />
-                    RoofRack Storage<input
+                    RoofRack<input
+                        className="amenity6"
                         id="roofRackStorage"
                         type='checkbox'
                         checked={roofRackStorage}
                         onChange={(e) => setRoofRackStorage(!roofRackStorage)}
                     />
                     Hotspot<input
+                        className="amenity7"
                         id="hotSpot"
                         type='checkbox'
                         checked={hotSpot}
                         onChange={(e) => setHotSpot(!hotSpot)}
                     />
-                    Charging Station<input
+                    Charging<input
+                        className="amenity8"
                         id="chargingStation"
                         type='checkbox'
                         checked={chargingStation}
                         onChange={(e) => setChargingStation(!chargingStation)}
                     />
+                    </div>
                 </div>
 
-                Description<textarea
+                <textarea
                     style={{resize: "none"}}
                     rows="6"
                     cols="40"
