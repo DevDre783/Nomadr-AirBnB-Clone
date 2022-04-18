@@ -113,3 +113,112 @@
     cursor: pointer;
     color: white;
 }
+
+@media screen and (min-width: 1640px) and (max-width: 2000px) {
+    .VanLife__container {
+        transform: scale(0.9);
+        margin-left: 0;
+        justify-content: center;
+        position: relative;
+        width: 59.7%;
+    }
+
+    .explore-handler {
+        position: absolute;
+        border-radius: 30px;
+        bottom: 0;
+        background-color: #ff444a;
+        overflow: hidden;
+        width: 100%;
+        height: 0;
+        transition: .5s ease;
+    }
+
+    .banner__info {
+        display: flex;
+        justify-content: center;
+        text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.685);
+        font-weight: bold;
+        font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        font-size: 22pt;
+        position: absolute;
+        top: 66%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .the-image {
+        transform: scale(0.85);
+    }
+
+    .site-name {
+        text-shadow: black 1px 1px 1px;
+        color: #ff444a;
+        font-family: 'Finger Paint', cursive;
+        font-size: 42pt;
+        font-weight: bolder;
+        position: absolute;
+        bottom: 0px;
+        right: 18.9%;
+    }
+
+    .build__video {
+        transform: scale(0.9);
+        border-radius: 30px;
+    }
+}
+
+
+@media screen and (min-width: 100px) and (max-width: 1650px) {
+    .VanLife__container {
+        transform: scale(0.85);
+        margin-left: 0;
+        justify-content: center;
+        position: relative;
+        width: 68%;
+    }
+
+    .explore-handler {
+        position: absolute;
+        border-radius: 30px;
+        bottom: 0;
+        background-color: #ff444a;
+        overflow: hidden;
+        width: 101.5%;
+        height: 0;
+        transition: .5s ease;
+    }
+
+    .banner__info {
+        display: flex;
+        justify-content: center;
+        text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.685);
+        font-weight: bold;
+        font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        font-size: 20pt;
+        position: absolute;
+        top: 66%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .the-image {
+        transform: scale(0.85);
+    }
+
+    .site-name {
+        text-shadow: black 1px 1px 1px;
+        color: #ff444a;
+        font-family: 'Finger Paint', cursive;
+        font-size: 42pt;
+        font-weight: bolder;
+        position: absolute;
+        bottom: 0px;
+        right: 14.9%;
+    }
+
+    .build__video {
+        transform: scale(0.8);
+        border-radius: 30px;
+    }
+}
