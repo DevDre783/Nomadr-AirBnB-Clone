@@ -78,7 +78,7 @@ function VanDetailsPage() {
             </div>
             <div className="lowermost__container">
                 <div className="reviews__container">
-                    <h1 className="reviews__header">Reviews</h1>
+                    <h1 className="reviews__header" style={{textDecoration: "underline"}}>Reviews</h1>
                     <div>
                         map out the reviews from the database here.... + usernames
                     </div>
