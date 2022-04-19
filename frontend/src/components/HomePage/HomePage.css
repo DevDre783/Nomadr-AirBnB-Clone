@@ -22,7 +22,8 @@
     font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-size: 30pt;
     position: absolute;
-    top: 53%;
+    min-width: 1500px;
+    top: 57%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
@@ -52,8 +53,8 @@
     font-size: 42pt;
     font-weight: bolder;
     position: absolute;
-    bottom: 175px;
-    right: 21.9%;
+    top: 93%;
+    right: 22.9%;
 }
 
 .VanLife__container:hover .explore-handler {
@@ -142,13 +143,9 @@
         font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
         font-size: 22pt;
         position: absolute;
-        top: 66%;
+        top: 20%;
         left: 50%;
         transform: translate(-50%, -50%);
-    }
-
-    .the-image {
-        transform: scale(0.85);
     }
 
     .site-name {
@@ -158,7 +155,7 @@
         font-size: 42pt;
         font-weight: bolder;
         position: absolute;
-        bottom: 0px;
+        bottom: 0;
         right: 18.9%;
     }
 
@@ -176,6 +173,7 @@
         justify-content: center;
         position: relative;
         width: 68%;
+        min-width: 1025px;
     }
 
     .explore-handler {
@@ -185,6 +183,7 @@
         background-color: #ff444a;
         overflow: hidden;
         width: 101.5%;
+        min-width: 1025px;
         height: 0;
         transition: .5s ease;
     }
@@ -197,13 +196,14 @@
         font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
         font-size: 20pt;
         position: absolute;
-        top: 66%;
-        left: 50%;
+        top: 75%;
+        /* left: 50%; */
         transform: translate(-50%, -50%);
     }
 
     .the-image {
         transform: scale(0.85);
+        min-width: 1025px;
     }
 
     .site-name {
@@ -213,12 +213,18 @@
         font-size: 42pt;
         font-weight: bolder;
         position: absolute;
-        bottom: 0px;
-        right: 14.9%;
+        top: 115%;
+        bottom: 0;
+        right: 10.9%;
     }
 
     .build__video {
         transform: scale(0.8);
         border-radius: 30px;
+    }
+
+    .build-title {
+        font-family: 'Finger Paint', cursive;
+        margin-left: 5%;
     }
 }
