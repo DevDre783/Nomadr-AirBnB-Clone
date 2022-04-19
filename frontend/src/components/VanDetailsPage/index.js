@@ -50,19 +50,6 @@ function VanDetailsPage() {
                 <p className="hosted-by">Hosted by: {oneVan?.User?.username}</p>
                 <div className="top__container">
                     <img className="van__image" key={oneVan?.id} src={oneVan?.Images[0]?.url}></img>
-                    <div className="amenities__list">
-                        <h3>Available Amenities:</h3>
-                        <ul style={{listStyle: "none"}}>
-                            <li>Kitchen: {oneVan?.Amenities[0]?.kitchen ? <FaCheck style={{color: "green"}}/> : <span style={{color: "red"}}>False</span>}</li>
-                            <li>Shower: {oneVan?.Amenities[0]?.shower ? <FaCheck style={{color: "green"}}/> : <span style={{color: "red"}}>False</span>}</li>
-                            <li>Spare: {oneVan?.Amenities[0]?.spareTire ? <FaCheck style={{color: "green"}}/> : <span style={{color: "red"}}>False</span>}</li>
-                            <li>FirstAid: {oneVan?.Amenities[0]?.firstAidKit ? <FaCheck style={{color: "green"}}/> : <span style={{color: "red"}}>False</span>}</li>
-                            <li>Roadside: {oneVan?.Amenities[0]?.roadsideAssistance ? <FaCheck style={{color: "green"}}/> : <span style={{color: "red"}}>False</span>}</li>
-                            <li>RoofRack: {oneVan?.Amenities[0]?.roofRackStorage ? <FaCheck style={{color: "green"}}/> : <span style={{color: "red"}}>False</span>}</li>
-                            <li>HotSpot: {oneVan?.Amenities[0]?.hotSpot ? <FaCheck style={{color: "green"}}/> : <span style={{color: "red"}}>False</span>}</li>
-                            <li>Charging: {oneVan?.Amenities[0]?.chargingStation ? <FaCheck style={{color: "green"}}/> : <span style={{color: "red"}}>False</span>}</li>
-                        </ul>
-                    </div>
                 </div>
                 {sessionUser?.id === oneVan?.userId &&
                     <div className="buttons__container">
@@ -73,13 +60,28 @@ function VanDetailsPage() {
                     </div>
                 }
                 <p className="location__tag">{oneVan?.city}, {oneVan?.state} {oneVan?.zipCode}</p>
-                <h3 className="description-label">Description</h3>
+                {/* <h3 className="description-label">Description</h3> */}
+                <div className="mid__container">
                 <p className="van-description">{oneVan?.description}</p>
+                    <div className="amenities__list">
+                        <h3>Available Amenities:</h3>
+                        <ul style={{listStyle: "none"}}>
+                            <li>Kitchen: {oneVan?.Amenities[0]?.kitchen ? <FaCheck style={{color: "green"}}/> : <span style={{color: "red"}}>n/a</span>}</li>
+                            <li>Shower: {oneVan?.Amenities[0]?.shower ? <FaCheck style={{color: "green"}}/> : <span style={{color: "red"}}>n/a</span>}</li>
+                            <li>Spare: {oneVan?.Amenities[0]?.spareTire ? <FaCheck style={{color: "green"}}/> : <span style={{color: "red"}}>n/a</span>}</li>
+                            <li>FirstAid: {oneVan?.Amenities[0]?.firstAidKit ? <FaCheck style={{color: "green"}}/> : <span style={{color: "red"}}>n/a</span>}</li>
+                            <li>Roadside: {oneVan?.Amenities[0]?.roadsideAssistance ? <FaCheck style={{color: "green"}}/> : <span style={{color: "red"}}>n/a</span>}</li>
+                            <li>RoofRack: {oneVan?.Amenities[0]?.roofRackStorage ? <FaCheck style={{color: "green"}}/> : <span style={{color: "red"}}>n/a</span>}</li>
+                            <li>HotSpot: {oneVan?.Amenities[0]?.hotSpot ? <FaCheck style={{color: "green"}}/> : <span style={{color: "red"}}>n/a</span>}</li>
+                            <li>Charging: {oneVan?.Amenities[0]?.chargingStation ? <FaCheck style={{color: "green"}}/> : <span style={{color: "red"}}>n/a</span>}</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
             <div className="lowermost__container">
                 <div className="reviews__container">
                     <h1 className="reviews__header" style={{textDecoration: "underline"}}>Reviews</h1>
-                    <div>
+                    <div className="the__reviews">
                         map out the reviews from the database here.... + usernames
                     </div>
                 </div>

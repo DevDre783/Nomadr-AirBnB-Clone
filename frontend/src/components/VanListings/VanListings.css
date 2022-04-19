@@ -6,6 +6,13 @@ html {
     scroll-behavior: smooth;
 }
 
+.container__picTitle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 .container{
     margin-top: 4%;
     display: grid;

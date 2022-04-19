@@ -17,11 +17,11 @@ function Home() {
             <div className='site-name'>Nomadr.</div>
             <div className='VanLife__container'>
                 <img className='VanLife__image' alt="Van-Life" src={'https://cdn.shopify.com/s/files/1/0458/2591/7081/products/campervan3-mockup_1024x.png?v=1630079365'}></img>
-                <div className='explore-handler'>
                 <Link to={`/vans`}>
+                <div className='explore-handler'>
                     <button className='explore-btn'>Explore Nearby</button>
-                </Link>
                 </div>
+                </Link>
             </div>
             <div className='build__container'>
                 <h2 className='build-title'>Full Van Build<i class="fas fa-share"></i></h2>
