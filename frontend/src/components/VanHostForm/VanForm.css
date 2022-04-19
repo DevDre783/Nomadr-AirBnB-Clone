@@ -70,11 +70,17 @@ textarea {
 }
 
 @media screen and (min-width: 10px) and (max-width: 2440px) {
+    .form__image {
+        transform: scale(0.8);
+        z-index: -1;
+    }
+
     .form__container {
         display: flex;
         flex-direction: column;
         align-items: center;
-        margin-top: 10%;
+        margin-bottom: 7%;
+        transform: scale(0.9);
     }
 
     .form__container > input {
@@ -85,7 +91,7 @@ textarea {
         border: 1.5px solid black;
         background-color: white;
         width: 375px;
-        margin-top: 1%;
+        /* margin-top: 1%; */
         display: flex;
         position: absolute;
         flex-direction: column;
@@ -127,8 +133,8 @@ textarea {
 
     .errors__container {
         position: absolute;
-        /* z-index: -1; */
-        margin-left: 60%;
+        z-index: 1;
+        margin-left: 65%;
         margin-top: 12.5%;
         width: 20%;
     }
