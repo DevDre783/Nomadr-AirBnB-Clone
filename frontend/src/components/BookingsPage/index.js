@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useHistory, useParams } from 'react-router-dom';
 import { getAllBookings } from "../../store/booking";
 
+
 function BookingsPage() {
     const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user);

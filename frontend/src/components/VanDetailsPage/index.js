@@ -16,6 +16,7 @@ function VanDetailsPage() {
 
     // console.log("FLAGGGG", oneVan);
     const sessionUser = useSelector(state => state.session.user);
+    const userId = sessionUser.id
     const dispatch = useDispatch();
     const history = useHistory();
     // console.log(oneVan);
@@ -28,6 +29,13 @@ function VanDetailsPage() {
     }, [dispatch, vanId]);
 
     console.log(vanId);
+
+    // const handleSubmit = (e) => {
+    //     e.preventDefault();
+
+    //     dispatch(postBooking(userId, vanId, the_booking))
+    //     history.push("/bookings")
+    // }
 
     const deleteBtn = async (e) => {
         e.preventDefault()
@@ -42,6 +50,11 @@ function VanDetailsPage() {
            history.push("/vans")
         }
     }
+
+     // const defaultDate = () => {
+    //     const date = new Date().toISOString().slice(0, 10);
+    //     return date;
+    // };
 
     return (
         <div>

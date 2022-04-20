@@ -1,6 +1,6 @@
 // frontend/src/components/Navigation/ProfileButton.js
 import React, { useState, useEffect } from "react";
-import { Link, useHistory } from 'react-router-dom';
+import { Link, NavLink, useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import * as sessionActions from '../../store/session';
 import './Navigation.css';
@@ -45,6 +45,7 @@ function ProfileButton({ user }) {
         <ul className="profile-dropdown">
           <li className="Dd-username">User: {user.username}</li>
           <li className="Dd-email">Email: {user.email}</li>
+          <NavLink className='vanstorent' to='/bookings'>Bookings</NavLink>
           <button className="logout-btn" onClick={logout}>Log Out</button>
         </ul>
       )}
