@@ -12,6 +12,7 @@ import VanHostForm from "./components/VanHostForm";
 import EditVanForm from "./components/EditVanForm";
 import Footer from './components/Footer';
 import Home from "./components/HomePage";
+import BookingsPage from "./components/BookingsPage";
 
 function App() {
   const dispatch = useDispatch();
@@ -46,6 +47,9 @@ function App() {
           </Route>
           <Route exact path='/vans/:vanId/host'>
             <EditVanForm />
+          </Route>
+          <Route exact path='/bookings'>
+            <BookingsPage />
           </Route>
           <Route path='/'>
             <h1>Page Not Found.</h1>

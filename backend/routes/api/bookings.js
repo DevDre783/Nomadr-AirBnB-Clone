@@ -9,9 +9,12 @@ const { Van, Image, Amenity, User, Booking } = require('../../db/models');
 const { db } = require('../../config');
 const router = express.Router();
 
-router.get('/bookings', asyncHandler(async (req, res) => {
+router.get('/', asyncHandler(async (req, res) => {
     const bookings = await Booking.findAll();
-    console.log(bookings);
 
-    res.json(bookings);
+    console.log("@@@@@@@@@@@@@@", bookings);
+
+    return res.json(bookings);
 }));
+
+module.exports = router
