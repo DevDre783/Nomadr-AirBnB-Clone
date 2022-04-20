@@ -8,7 +8,7 @@ module.exports = {
           userId: 2,
           startDate: new Date(),
           endDate: new Date(),
-          passengers: 3,
+          // passengers: 3,
           createdAt: new Date(),
           updatedAt: new Date()
         },
@@ -17,7 +17,7 @@ module.exports = {
           userId: 1,
           startDate: new Date(),
           endDate: new Date(),
-          passengers: 1,
+          // passengers: 1,
           createdAt: new Date(),
           updatedAt: new Date()
         },
@@ -26,7 +26,7 @@ module.exports = {
           userId: 3,
           startDate: new Date(),
           endDate: new Date(),
-          passengers: 5,
+          // passengers: 5,
           createdAt: new Date(),
           updatedAt: new Date()
         }
