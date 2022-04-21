@@ -57,7 +57,7 @@ function VanDetailsPage() {
     // };
 
     return (
-        <div>
+        <div className="the__page">
             <div className="details__container">
                 <h2 className="van-title">{oneVan?.title}</h2>
                 <p className="hosted-by">Hosted by: {oneVan?.User?.username}</p>
@@ -111,6 +111,9 @@ function VanDetailsPage() {
                     </div>
                 </div>
             </div>
+        <div className="gif__container">
+                <img className="the__gif" src="https://i.pinimg.com/originals/1a/dc/15/1adc15631ddb720046af616d0d4d0b47.gif"></img>
+        </div>
         </div>
     )
 }

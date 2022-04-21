@@ -56,7 +56,7 @@ router.get('/', asyncHandler(async (req, res) => {
     const vans = await Van.findAll({
         include: [Image, Amenity]
     });
-    console.log(vans[0].Images[0].url)
+    // console.log(vans[0].Images[0].url)
 
     res.json(vans);
 }));

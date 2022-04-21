@@ -12,8 +12,6 @@ const router = express.Router();
 router.get('/', asyncHandler(async (req, res) => {
     const bookings = await Booking.findAll();
 
-    console.log("@@@@@@@@@@@@@@", bookings);
-
     return res.json(bookings);
 }));
 
