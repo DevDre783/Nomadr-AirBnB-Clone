@@ -9,6 +9,25 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
+.WOW {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.BOOKINGS {
+    margin-left: 50px;
+    margin-bottom: 25px;
+    display: inline-block;
+    font-size: 16pt;
+    text-decoration: none;
+    color: #FF5A5F;
+}
+
+.BOOKINGS:hover {
+    text-decoration: underline;
+}
+
 .group1 {
     margin-left: 30%;
 }
@@ -173,6 +192,7 @@ body {
 
 .profile-dropdown {
     padding: 35px;
+    /* padding-left: 60px; */
     position: absolute;
     margin-right: 0;
     margin-top: 1%;
@@ -184,10 +204,12 @@ body {
     font-size: 14pt;
     font-weight: bold;
     list-style: none;
+    padding-left: 10px;
     padding-bottom: 15px;
 }
 
 .Dd-email {
+    padding-left: 10px;
     list-style: none;
     padding-bottom: 45px;
 }
