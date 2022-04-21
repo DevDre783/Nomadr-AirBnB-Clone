@@ -7,6 +7,7 @@ import './VanDetailsPage.css';
 import Calendar from 'react-calendar'
 import { FaCheck } from "react-icons/fa";
 import 'react-calendar/dist/Calendar.css';
+import theVan from "../../images/Van_driving.gif"
 
 
 function VanDetailsPage() {
@@ -111,9 +112,7 @@ function VanDetailsPage() {
                     </div>
                 </div>
             </div>
-        <div className="gif__container">
-                <img className="the__gif" src="https://i.pinimg.com/originals/1a/dc/15/1adc15631ddb720046af616d0d4d0b47.gif"></img>
-        </div>
+            <img className="the__gif" src={theVan}></img>
         </div>
     )
 }
