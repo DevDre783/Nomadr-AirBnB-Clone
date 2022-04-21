@@ -1,5 +1,6 @@
 .edit-btn {
-    background-color: white; /* Green */
+    background-color: white;
+    /* Green */
     border: 2px solid red;
     color: black;
     padding: 4px 8px;
@@ -11,20 +12,38 @@
     transition-duration: 0.4s;
     margin-bottom: 20px;
     cursor: pointer;
-  }
+}
 
-  .top__container {
-      display: flex;
-      flex-direction: row;
-  }
+.the__gif {
+    transform: scale(0.5);
+    border: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    
+}
+
+.gif__container {
+    bottom: 0;
+    margin-bottom: 0;
+}
+
+.the__page {
+    background-color: rgb(220, 225, 211);
+}
+
+.top__container {
+    display: flex;
+    flex-direction: row;
+}
 
 .edit-btn:hover {
-  background-color: red;
-  color: white;
+    background-color: red;
+    color: white;
 }
 
 .delete-btn {
-    background-color: white; /* Green */
+    background-color: white;
+    /* Green */
     border: 2px solid red;
     color: black;
     padding: 4px 8px;
@@ -36,11 +55,11 @@
     transition-duration: 0.4s;
     margin-bottom: 20px;
     cursor: pointer;
-  }
+}
 
 .delete-btn:hover {
-  background-color: red;
-  color: white;
+    background-color: red;
+    color: white;
 }
 
 .details__container {
