@@ -15,20 +15,63 @@
 }
 
 .the__gif {
-    transform: scale(0.5);
-    border: none;
-    margin-bottom: 0;
-    padding-bottom: 0;
-    
-}
+    /* animation properties */
+    -moz-transform: translateX(550%);
+    -webkit-transform: translateX(550%);
+    transform: translateX(550%);
+    -moz-animation: my-animation 9s linear infinite;
+    -webkit-animation: my-animation 9s linear infinite;
+    animation: my-animation 9s linear infinite;
+    animation-iteration-count: infinite;
 
-.gif__container {
+    border: none;
     bottom: 0;
     margin-bottom: 0;
+    padding-bottom: 0;
+    margin-top: none;
 }
 
+/* for Firefox */
+@-moz-keyframes my-animation {
+    from {
+        -moz-transform: translateX(-100%);
+    }
+
+    to {
+        -moz-transform: translateX(550%);
+    }
+}
+
+/* for Chrome */
+@-webkit-keyframes my-animation {
+    from {
+        -webkit-transform: translateX(-100%);
+    }
+
+    to {
+        -webkit-transform: translateX(550%);
+    }
+}
+
+@keyframes my-animation {
+    from {
+        -moz-transform: translateX(-100%);
+        -webkit-transform: translateX(-100%);
+        transform: translateX(-100%);
+    }
+
+    to {
+        -moz-transform: translateX(550%);
+        -webkit-transform: translateX(550%);
+        transform: translateX(550%);
+    }
+}
+
+
 .the__page {
-    background-color: rgb(220, 225, 211);
+    padding: 0;
+    margin: 0;
+    background-color: rgb(223, 221, 211);
 }
 
 .top__container {
@@ -142,7 +185,7 @@ li {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    margin-bottom: 5%;
+    /* margin-bottom: 5%; */
 }
 
 .reviews__container {
