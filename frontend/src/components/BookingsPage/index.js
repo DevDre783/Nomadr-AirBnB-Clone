@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useHistory, useParams } from 'react-router-dom';
 import { getAllBookings } from "../../store/booking";
+import './BookingsPage.css'
 
 
 function BookingsPage() {
@@ -27,14 +28,18 @@ function BookingsPage() {
                         <>
                             {/* <h1 key={booking.id} style={{marginTop: "10%", marginLeft: "20%"}}>{booking.startDate} ......TO...... {booking.endDate}</h1> */}
                             {allVans.map(van => (
-                                <div className="container__picTitle">
+                                <div className="">
                                     {booking.vanId === van.id &&
-                                        <>
+                                    <div className="YO">
+                                        <div className="IMAGE__TITLE">
                                             <h2 style={{marginTop: "5%", textDecoration: "underline"}} key={`${van.id}3`}>{van.title}</h2>
-                                            <Link key={`${van.id}1`} id='vanImgLink' className="vanImage" to={`/vans/${van.id}`}>\
-                                                <img id="vanId" key={`${van.id}2`} src={van?.Images[0]?.url}></img>
+                                        </div>
+                                        <div className="IMAGE">
+                                            <Link key={`${van.id}1`} id='' className="" to={`/vans/${van.id}`}>
+                                                <img id="" key={`${van.id}2`} src={van?.Images[0]?.url}></img>
                                             </Link>
-                                        </>
+                                        </div>
+                                    </div>
                                     }
                                 </div>
                             ))}

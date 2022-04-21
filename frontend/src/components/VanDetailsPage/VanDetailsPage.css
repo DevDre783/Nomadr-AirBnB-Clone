@@ -129,6 +129,7 @@
     border-radius: 30px;
     height: 600px;
     width: 1000px;
+    box-shadow: 0 0 10px 3px grey;
 }
 
 .location__tag {

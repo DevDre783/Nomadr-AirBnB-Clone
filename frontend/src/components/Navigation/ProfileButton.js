@@ -42,12 +42,14 @@ function ProfileButton({ user }) {
         <i className="fas fa-user-circle" />
       </button>
       {showMenu && (
-        <ul className="profile-dropdown">
-          <li className="Dd-username">User: {user.username}</li>
-          <li className="Dd-email">Email: {user.email}</li>
-          <NavLink className='vanstorent' to='/bookings'>Bookings</NavLink>
-          <button className="logout-btn" onClick={logout}>Log Out</button>
-        </ul>
+        <div className="WOW">
+          <ul className="profile-dropdown">
+            <li className="Dd-username">User: {user.username}</li>
+            <li className="Dd-email">Email: {user.email}</li>
+            <NavLink className='BOOKINGS' to='/bookings'>Bookings</NavLink>
+            <button className="logout-btn" onClick={logout}>Log Out</button>
+          </ul>
+        </div>
       )}
     </>
   );
