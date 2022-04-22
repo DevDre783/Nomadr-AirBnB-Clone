@@ -6,6 +6,11 @@ import { deleteVan } from "../../store/vans";
 import './VanDetailsPage.css';
 import Calendar from 'react-calendar'
 import { FaCheck } from "react-icons/fa";
+import { GiFlatTire, GiShower, GiCookingPot, GiFirstAidKit, GiTowTruck } from "react-icons/gi"
+import { BsFillHddRackFill } from "react-icons/bs"
+import { GrWifi } from "react-icons/gr"
+import { RiBattery2ChargeLine } from "react-icons/ri"
+// import {GiFlatTire} from "GenIcon"
 import 'react-calendar/dist/Calendar.css';
 import theVan from "../../images/Van_driving.gif"
 
@@ -78,16 +83,15 @@ function VanDetailsPage() {
                 <div className="mid__container">
                 <p className="van-description">{oneVan?.description}</p>
                     <div className="amenities__list">
-                        <h3>Available Amenities:</h3>
                         <ul style={{listStyle: "none"}}>
-                            <li>Kitchen: {oneVan?.Amenities[0]?.kitchen ? <FaCheck style={{color: "green"}}/> : <span style={{color: "red"}}>n/a</span>}</li>
-                            <li>Shower: {oneVan?.Amenities[0]?.shower ? <FaCheck style={{color: "green"}}/> : <span style={{color: "red"}}>n/a</span>}</li>
-                            <li>Spare: {oneVan?.Amenities[0]?.spareTire ? <FaCheck style={{color: "green"}}/> : <span style={{color: "red"}}>n/a</span>}</li>
-                            <li>FirstAid: {oneVan?.Amenities[0]?.firstAidKit ? <FaCheck style={{color: "green"}}/> : <span style={{color: "red"}}>n/a</span>}</li>
-                            <li>Roadside: {oneVan?.Amenities[0]?.roadsideAssistance ? <FaCheck style={{color: "green"}}/> : <span style={{color: "red"}}>n/a</span>}</li>
-                            <li>RoofRack: {oneVan?.Amenities[0]?.roofRackStorage ? <FaCheck style={{color: "green"}}/> : <span style={{color: "red"}}>n/a</span>}</li>
-                            <li>HotSpot: {oneVan?.Amenities[0]?.hotSpot ? <FaCheck style={{color: "green"}}/> : <span style={{color: "red"}}>n/a</span>}</li>
-                            <li>Charging: {oneVan?.Amenities[0]?.chargingStation ? <FaCheck style={{color: "green"}}/> : <span style={{color: "red"}}>n/a</span>}</li>
+                            <li><span className="huh"><GiCookingPot className="ICONS"/></span> Kitchen: {oneVan?.Amenities[0]?.kitchen ? <span className="huh"><FaCheck style={{color: "green", marginLeft: "5%"}}/></span> : <span style={{color: "red", marginLeft: "5%"}}> N/A</span>}</li>
+                            <li><span className="huh"><GiShower className="ICONS"/></span> Shower: {oneVan?.Amenities[0]?.shower ? <span className="huh"><FaCheck style={{color: "green", marginLeft: "5%"}}/></span> : <span style={{color: "red", marginLeft: "5%"}}> N/A</span>}</li>
+                            <li><span className="huh"><GiFlatTire className="ICONS"/></span> Spare: {oneVan?.Amenities[0]?.spareTire ? <span className="huh"><FaCheck style={{color: "green", marginLeft: "5%"}}/></span> : <span style={{color: "red", marginLeft: "5%"}}> N/A</span>}</li>
+                            <li><span className="huh"><GiFirstAidKit className="ICONS" id="extra_styling"/></span> FirstAid: {oneVan?.Amenities[0]?.firstAidKit ? <span className="huh"><FaCheck style={{color: "green", marginLeft: "5%"}}/></span> : <span style={{color: "red", marginLeft: "5%"}}> N/A</span>}</li>
+                            <li><span className="huh"><GiTowTruck className="ICONS" id="extra_styling"/></span> Roadside: {oneVan?.Amenities[0]?.roadsideAssistance ? <span className="huh"><FaCheck style={{color: "green", marginLeft: "5%"}}/></span> : <span style={{color: "red", marginLeft: "5%"}}> N/A</span>}</li>
+                            <li><span className="huh"><BsFillHddRackFill className="ICONS" id="extra_styling"/></span> RoofRack: {oneVan?.Amenities[0]?.roofRackStorage ? <span className="huh"><FaCheck style={{color: "green", marginLeft: "5%"}}/></span> : <span style={{color: "red", marginLeft: "5%"}}> N/A</span>}</li>
+                            <li><span className="huh"><GrWifi className="ICONS"/></span> HotSpot: {oneVan?.Amenities[0]?.hotSpot ? <span className="huh"><FaCheck style={{color: "green", marginLeft: "5%"}}/></span> : <span style={{color: "red", marginLeft: "5%"}}> N/A</span>}</li>
+                            <li><span className="huh"><RiBattery2ChargeLine className="ICONS"/></span> Charging: {oneVan?.Amenities[0]?.chargingStation ? <span className="huh"><FaCheck style={{color: "green", marginLeft: "5%"}}/></span> : <span style={{color: "red", marginLeft: "5%"}}> N/A</span>}</li>
                         </ul>
                     </div>
                 </div>

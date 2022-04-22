@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/DevDre783/AirBnB-Clone-Project-Jan2022#readme",
   "dependencies": {
+    "@react-icons/all-files": "^4.1.0",
     "react-calendar": "^3.7.0",
     "react-icons": "^4.3.1"
   }
