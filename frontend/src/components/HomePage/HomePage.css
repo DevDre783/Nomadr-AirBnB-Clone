@@ -23,7 +23,7 @@
     font-size: 30pt;
     position: absolute;
     min-width: 1500px;
-    top: 57%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
@@ -53,7 +53,7 @@
     font-size: 42pt;
     font-weight: bolder;
     position: absolute;
-    top: 93%;
+    top: 85%;
     right: 22.9%;
 }
 
@@ -130,7 +130,7 @@
         bottom: 0;
         background-color: #ff444a;
         overflow: hidden;
-        width: 100%;
+        width: 97%;
         height: 0;
         transition: .5s ease;
     }
@@ -143,7 +143,7 @@
         font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
         font-size: 22pt;
         position: absolute;
-        top: 20%;
+        top: 60%;
         left: 50%;
         transform: translate(-50%, -50%);
     }
@@ -155,8 +155,9 @@
         font-size: 42pt;
         font-weight: bolder;
         position: absolute;
+        top: 100vh;
         bottom: 0;
-        right: 18.9%;
+        right: 15%;
     }
 
     .build__video {
@@ -182,7 +183,7 @@
         bottom: 0;
         background-color: #ff444a;
         overflow: hidden;
-        width: 101.5%;
+        width: 100%;
         min-width: 1025px;
         height: 0;
         transition: .5s ease;
@@ -196,7 +197,7 @@
         font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
         font-size: 20pt;
         position: absolute;
-        top: 75%;
+        top: 63%;
         /* left: 50%; */
         transform: translate(-50%, -50%);
     }
@@ -213,7 +214,7 @@
         font-size: 42pt;
         font-weight: bolder;
         position: absolute;
-        top: 115%;
+        top: 98%;
         bottom: 0;
         right: 10.9%;
     }
