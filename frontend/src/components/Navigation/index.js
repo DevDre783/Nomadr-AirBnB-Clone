@@ -1,15 +1,19 @@
 // frontend/src/components/Navigation/index.js
 import React from 'react';
 import { NavLink, Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import './Navigation.css';
-import VansHostForm from '../VanHostForm';
 import Demo from './demo-user';
 import SearchBar from '../SearchBar';
 
 function Navigation({ isLoaded }){
   const sessionUser = useSelector(state => state.session.user);
+  const allVans = useSelector(state => state?.vans?.listOfVans);
+
+  const allTitles = allVans.map(van => {
+    return van.title;
+  })
 
   let sessionLinks;
   if (sessionUser) {
@@ -43,7 +47,7 @@ function Navigation({ isLoaded }){
             </span>
           }
         </div>
-          {sessionUser && <SearchBar/>}
+          {sessionUser && <SearchBar  allTitles={allTitles} allVans={allVans}/>}
         <div className='right-nav'>
           <div className='profile-icon'>{isLoaded && sessionLinks}</div>
         </div>

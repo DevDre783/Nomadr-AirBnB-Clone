@@ -5,23 +5,25 @@ import { getAllVans } from '../../store/vans';
 import "./SearchBar.css"
 
 
-function SearchBar() {
+function SearchBar({ allTitles, allVans }) {
     const dispatch = useDispatch();
-    const allVans = useSelector(state => state.vans.listOfVans);
-    console.log(allVans)
+    console.log("ALL TITLES", allTitles)
+    // const allVans = useSelector(state => state?.vans?.listOfVans);
+    // console.log(allVans)
     const [searchTerm, setSearchTerm] = useState("");
     const [searchResults, setSearchResults] = useState([]);
 
-    const allTitles = allVans.map(van => {
-        return van.title;
-    })
+    // const allTitles = allVans.map(van => {
+    //     return van.title;
+    // })
 
     useEffect(() => {
         setSearchTerm("")
-        dispatch(getAllVans(allTitles))
-    }, [dispatch])
+        // dispatch(getAllVans(allTitles))
+    }, [])
 
-    useEffect(() => {
+    useEffect((allVans) => {
+        dispatch(getAllVans(allVans))
 
         if (searchTerm === "") {
             return setSearchTerm("")
@@ -37,7 +39,7 @@ function SearchBar() {
 
         setSearchResults(finalResult)
 
-    }, [searchTerm])
+    }, [searchTerm, dispatch])
 
 
     return (
